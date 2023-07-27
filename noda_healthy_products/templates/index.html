@@ -1,0 +1,234 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+<!-- Start Landing Page  -->
+
+<div class="landing-page">
+    <div class="side-img-container">
+        <img src="{% static 'imgs/side-image1.jpg'%}" alt="" />
+    </div>
+    <div class="side-img-container">
+        <img src="{% static 'imgs/side-image2-1.jpg'%}" alt="" />
+    </div>
+    <nav>
+        <div class="menu-button">
+            <span></span>
+            <span></span>
+        </div>
+        <div class="logo">Noda Healthy Products</div>
+        <div class="contact-link">
+            <div><a href="{% url 'login' %}">تسجيل دخول</a></div>
+            <div>تواصل معنا</div>
+        </div>
+    </nav>
+    <div class="introduction-text">
+        <div class="container">
+            <!-- <h1>A Compelling Value Proposition Here.</h1> -->
+            <h1>نساعد كل انثي لتحقيق راحتها وإظهار جمالها</h1>
+            <p>
+                منتجات صديقة للبيئه ومنتجات صحية لتزيد جمالك وتزيد نظافة بيتك وجسمك
+                وشعرك بدون ما تدمر صحتك
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- End Landing Page  -->
+
+<!-- Start About  -->
+
+<div class="about">
+    <div class="container">
+        <h2>منتجاتنا</h2>
+
+        <div class="about-box">
+            <div class="about-img">
+                <img src="{% static 'imgs/about3.jpg'%}" alt="" />
+            </div>
+            <div class="about-text">
+                <h3>ماسك كاشمير</h3>
+                <p>
+                    ببساطه اقوي زيوت ومكونات بتدخل فماسكات الشعر مجتمعة في ماسك كشمير
+                    بس كلها من الطبيعة بدون إضافات لسلكيات او كيماويات قد تبدو فالأول
+                    تحسن طبيعة الشعر ولكن مع الاستمرار تحدث تلف وتدمير للشعر
+                </p>
+                <a href="product.html">مزيد من المعلومات عن المنتج...</a>
+                <br>
+                <a href="#">إضافة إلي السلة</a>
+            </div>
+        </div>
+
+        <div class="about-box">
+            <a href="product.html">
+                <div class="about-img">
+                    <img src="{% static 'imgs/about1.jpg'%}" alt="" />
+                </div>
+            </a>
+            <div class="about-text">
+                <h3>فوطة جرين واي</h3>
+                <p>
+                    عارفين الفوطه الي بتبقي فإيدك طول منتي واقفه في المطبخ حاجه وقعت
+                    فتمسحيها، عصير اتكب فتلميه، تلمعي بيها بيها روخامتك، بلمعي بيها
+                    السراميك اللي ورا الحوض واللي فوق الرخامه.
+                </p>
+                <a href="#cart-plus" class="add-to-cart">
+                    <i class="fa fa-shopping-bag"></i>
+                    <span>99</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="about-box">
+            <div class="about-img">
+                <img src="{% static 'imgs/about2.jpg'%}" alt="" />
+            </div>
+            <div class="about-text">
+                <h3>المشط الخشبي</h3>
+                <p>
+                    المشط الخشبي لا يولد شحنات كهربائية عند تمشيط الشعر، وبالتالي
+                    يحافظ علي الشعر من التلف أو التقصف علي عكس المشط البلاستيك تماما
+                </p>
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+    </div>
+</div>
+
+<!-- End About  -->
+
+<!-- Start Testimonials -->
+
+<div class="testimonials">
+    <div class="container">
+        <div class="t-content">
+            <div class="t-box active">
+                <div class="t-img">
+                    <img src="{% static 'imgs/t1.jpg'%}" alt="" />
+                </div>
+                <div class="t-text">
+                    <p>
+                        "هنووووود حبيبتي، السلام عليكم ورحمة الله وبركاته. الفرشاة لسة
+                        موصلتش؟ أنا بعاني والله بشدة بسبب شعر بنتي رهييييب بجد. استخدمت
+                        الكورة رااائعة والله ربنا يكرمك حبيبتي &#128536; &#128536;"
+                    </p>
+                    <p>- عميل عن طريق تطبيق ماسنجر</p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="t-box">
+                <div class="t-img">
+                    <img src="{% static 'imgs/t2.jpg'%}" alt="" />
+                </div>
+                <div class="t-text">
+                    <p>
+                        "سلام عليكم. ازيك حبيبتي عاملة ايه يا رب تكوني بخير. جزاكي الله
+                        خيرا الحاجة جميلة والشامبو استعملته ريحته تحفة وملمسه جميل عيل
+                        الشعر والمشط والفرشة جميلة جدا اول مرة اجيب حاجة خشب وتجلع جميلة
+                        كدة تسلم ايديك حبيبتي "
+                    </p>
+                    <p>- عميل عن طريق الواتس اب</p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="t-box">
+                <div class="t-img">
+                    <img src="{% static 'imgs/t3.jpg'%}" alt="" />
+                </div>
+                <div class="t-text">
+                    <p>
+                        "هنود حبيبتي السلام عليكم ورحمة الله وبركاته. رجعت من السفر
+                        الحمد لله قلت انضف البيت بقة استخدمت المساحة التربو رهيييييتة
+                        اللهم بارك بجد مش عارفة اشكرك ازاي كنت عمالة اديعيلك امبارح
+                        رنبنا يكرمك والله"
+                    </p>
+                    <p>- عميل عن طريق طبيق ماسينجر</p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="t-box">
+                <div class="t-img">
+                    <img src="{% static 'imgs/t4.jpg'%}" alt="" />
+                </div>
+                <div class="t-text">
+                    <p>
+                        "السلام عليكم يا هند عايزه فوطه لجنه احسن اكلت دماغي. كل ما
+                        تشفني بعمل بيها تقولي الفوطه دي فيها حاجة غريبه ماليش دعوة عايزة
+                        واحدة. ساعات بتحسبني حطه مكياج &#128514; &#128514; &#128514;
+                        &#128514;"
+                    </p>
+                    <p>- عميل عن طريق الواتس اب</p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="change-t-box">
+                <span>
+                    <i class="fa fa-arrow-left"></i>
+                </span>
+                <span>
+                    <i class="fa fa-arrow-right"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- End Testimonials -->
+
+<!-- Start FAQ -->
+
+<div class="faq">
+    <div class="container">
+        <h2>الأسئلة التي يسألها عملائنا</h2>
+        <ul class="tabs-list">
+            <li data-answer=".ans1">لماذا نختار هذه المنتجات بالتحديد؟</li>
+            <div class="answer ans1">
+                <p>لأنها منتجات صحية ولكي نحافظ علي صحتنا وبيئتنا نظيفة.</p>
+            </div>
+            <li data-answer=".ans2">لماذا نختار هذا المنتج بالذات دون غيره؟</li>
+            <div class="answer ans2">
+                <p>لانه من مكان موثوف ومجرب من مدة كبيرة.</p>
+            </div>
+            <li data-answer=".ans3">
+                هل المنتج غالي بالنسبة للمنتجات المماثله له؟
+            </li>
+            <div class="answer ans3">
+                <p>يكاد يكون نفس السعر ولكن أعلي جودة</p>
+            </div>
+        </ul>
+    </div>
+</div>
+
+<!-- End FAQ -->
+
+<!-- Start Testimonials 2 -->
+
+<div class="testimonials2">
+    <div class="container">
+        <div class="t-box">
+            <div class="t-left">
+                <img src="{% static 'imgs/t5.jpg'%}" alt="Image" />
+            </div>
+            <div class="t-right">
+                <p>
+                    أحد العملاء عن صابونة كاشمير: شهادة حق جربت صابونة كاشمير فعلا
+                    حلوة قوي قشرت بشرتي زي الطمي والصابون المغربي باظبط بجد شكرا ليك
+                    وجزاك الله خيرا حبيبتي
+                </p>
+                <div class="five-stars">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+
+<!-- End Testimonials 2 -->
+{% endblock %}
