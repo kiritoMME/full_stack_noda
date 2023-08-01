@@ -7,6 +7,10 @@ from . import verify
 
 # Create your views here.
 
+
+def base(request):
+    return render(request, 'base.html')
+
 @login_required
 def index(request):
     return render(request, 'index.html')
@@ -19,8 +23,9 @@ def register(request):
             mobile = form.cleaned_data.get('mobile')
             password = form.cleaned_data.get('password')
             verify.send(mobile)
-            auth.authenticate(request, mobile=mobile, password=password)
-            return redirect('verify')
+            user = auth.authenticate(request, mobile=mobile, password=password)
+            auth.login(request, user)
+            return redirect('/verify')
     else:
         form = UserCreationForm()
     return render(request, 'register.html', {'form': form})
@@ -30,12 +35,14 @@ def login(request):
         mobile = request.POST.get('mobile')
         password = request.POST.get('password')
         user = auth.authenticate(request, mobile=mobile, password=password)
+        print(mobile)
+        print(password)
         if user is not None:
             auth.login(request, user)
             return redirect('index')
         else:
             messages.error(request, 'Invaid mobile number or password')
-    return render(request, 'login.html', {"form": LoginForm() })
+    return render(request, 'login.html')
 
 
 
