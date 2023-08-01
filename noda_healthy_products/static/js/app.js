@@ -1,5 +1,5 @@
 // Nav Bar Contact
-document.querySelector(".contact-link div:last-child").addEventListener("click", () => {
+document.querySelector(".contact-link").addEventListener("click", () => {
   document.querySelector(".contact").scrollIntoView({
     behavior: "smooth",
   });
