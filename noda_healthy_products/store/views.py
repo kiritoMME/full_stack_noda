@@ -3,6 +3,7 @@ from django.contrib.auth.models import auth
 from django.shortcuts import render,redirect
 from django.contrib import messages
 from .forms import UserCreationForm, VerifyForm, LoginForm
+from .models import Product, Tag
 from . import verify
 
 # Create your views here.
@@ -44,8 +45,6 @@ def login(request):
             messages.error(request, 'Invaid mobile number or password')
     return render(request, 'login.html')
 
-
-
 @login_required
 def verify_code(request):
     if request.method == 'POST':
@@ -59,3 +58,6 @@ def verify_code(request):
     else:
         form = VerifyForm()
     return render(request, 'verify.html', {'form': form})
+
+def product(request, pk):
+    return render(request, 'product.html', {'product': Product.objects.get(id=pk)})
