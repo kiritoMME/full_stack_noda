@@ -6,7 +6,11 @@
 
 /* Start Nav Bar  */
 
-.landing-page nav {
+body {
+    background: tomato;
+}
+
+nav {
     display: flex;
     justify-content: space-between;
     width: 90%;
@@ -19,34 +23,34 @@
     direction: rtl;
 }
 
-.landing-page nav .logo {
+nav .logo {
     font-family: var(--header-font);
     font-size: 25px;
 }
 
-.landing-page nav .logo a {
+nav .logo a {
     color: #000;
     text-decoration: none;
     transition: all 0.2s ease-in-out;
 }
 
-.landing-page nav .logo a:hover {
+nav .logo a:hover {
     color: #4e4e4e;
 }
 
 @media (max-width: 567px) {
-    .landing-page nav .logo {
+    nav .logo {
         font-size: 20px;
     }
 }
 
-.landing-page nav .contact-link {
+nav .contact-link {
     display: flex;
     width: 20%;
     justify-content: space-between;
 }
 
-.landing-page nav .contact-link div {
+nav .contact-link div {
         cursor: pointer;
 }
 
@@ -114,7 +118,7 @@
 /* Things That will Disappear */
 @media (max-width: 767px) {
     /* Nav Bar  */
-    .landing-page nav .contact-link {
+    nav .contact-link {
         display: none;
     }
 }

@@ -17,7 +17,15 @@
     <link rel="stylesheet" href="{% static 'css/faq.css'%}" />
     <link rel="stylesheet" href="{% static 'css/testimonials2.css'%}" />
     <link rel="stylesheet" href="{% static 'css/contact.css'%}" />
-    <title>Noda Healthy Products</title>
+    <link rel="stylesheet" href="{% static 'css/framework.css'%}" />
+    <link rel="stylesheet" href="{% static 'css/login.css'%}" />
+    <link rel="stylesheet" href="{% static 'css/signup.css'%}" />
+    <link rel="stylesheet" href="{% static 'css/product.css'%}" />
+    <title>  
+      {% block title %}
+      
+      {% endblock %}
+    </title>
   </head>
   <body>
     <div class="menu-overlay"></div>
@@ -39,6 +47,7 @@
     {% block content %}
     
     {% endblock %}
+
     <!-- Start Contact -->
 
     <div class="contact">
