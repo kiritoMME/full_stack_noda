@@ -1,31 +1,35 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Noda Healthy Products - Product Name</title>
-    <link rel="stylesheet" href="icons/css/all.min.css" />
-    <link rel="stylesheet" href="css/normalize.css" />
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/menu.css" />
-    <link rel="stylesheet" href="css/landing-page.css" />
-    <link rel="stylesheet" href="css/product.css" />
+    <link rel="stylesheet" href="{% static 'icons/css/all.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/menu.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/landing-page.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/product.css' %}" />
 </head>
+
 <body>
     <div class="menu-overlay"></div>
 
     <ul class="menu-box">
-      <li>
-        <div class="menu-button">
-          <span></span>
-          <span></span>
-        </div>
-      </li>
-      <li data-section=".about">تسجيل دخول</li>
-      <li data-section=".about">معلومات عن بعض منتجاتنا</li>
-      <li data-section=".testimonials">قالو عنا</li>
-      <li data-section=".faq">الأسئلة التي يسألها عملائنا</li>
-      <li data-section=".contact">تواصل معنا</li>
+        <li>
+            <div class="menu-button">
+                <span></span>
+                <span></span>
+            </div>
+        </li>
+        <li data-section=".about">تسجيل دخول</li>
+        <li data-section=".about">معلومات عن بعض منتجاتنا</li>
+        <li data-section=".testimonials">قالو عنا</li>
+        <li data-section=".faq">الأسئلة التي يسألها عملائنا</li>
+        <li data-section=".contact">تواصل معنا</li>
     </ul>
 
     <!-- Start Landing Page  -->
@@ -35,13 +39,18 @@
             <div class="container">
                 <div class="left">
                     <div class="product-info">
-                        <h3>فوطة جرين واي</h3>
-                        <p>
+                        <!-- <h3>فوطة جرين واي</h3> -->
+                        <h3>{{ product.name }}</h3>
+                        <!-- <p>
                             عارفين الفوطه الي بتبقي فإيدك طول منتي واقفه في المطبخ حاجه وقعت
                             فتمسحيها، عصير اتكب فتلميه، تلمعي بيها بيها روخامتك، بلمعي بيها
                         السراميك اللي ورا الحوض واللي فوق الرخامه.
+                        </p> -->
+                        <p>
+                            {{ product.description }}
                         </p>
-                        <div>السعر: 99</div>
+                        <!-- <div>السعر: 99</div> -->
+                        <div>السعر: {{ product.price }}</div>
                         <br>
                         <a href="#cart-plus" class="add-to-cart">
                             <i class="fa fa-shopping-bag"></i>
@@ -51,7 +60,7 @@
                 </div>
                 <div class="right">
                     <div class="product-img">
-                        <img src="imgs/about1.jpg" alt="" />
+                        <img src="{{ product.image.url }}" alt="{{ product.name }}" />
                     </div>
                 </div>
             </div>
@@ -68,8 +77,9 @@
             </div>
         </nav>
     </div>
-    
+
     <!-- End Landing Page  -->
 
 </body>
+
 </html>

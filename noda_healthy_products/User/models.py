@@ -1,23 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager
 
-
-
-
-class Tag(models.Model):
-    title = models.CharField(max_length=1000)
-    def __str__(self):
-        return self.title
-
-class Product(models.Model):
-    name = models.CharField(max_length=1000)
-    description = models.CharField(max_length=1000000)
-    price = models.FloatField()
-    tags = models.ManyToManyField(Tag)
-    image = models.ImageField(upload_to='uploads/%Y/%m/%d/')
-    def __str__(self):
-        return self.name
-
 class UserManager(BaseUserManager):
     def _create_user(self, email, password, first_name, last_name, mobile, **extra_fields):
         if not mobile:
