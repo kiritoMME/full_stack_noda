@@ -6,10 +6,6 @@
 
 /* Start Nav Bar  */
 
-body {
-    background: tomato;
-}
-
 nav {
     display: flex;
     justify-content: space-between;

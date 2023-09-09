@@ -3,12 +3,14 @@
     direction: rtl;
     height: 100%;
 }
+
 .product .left {
     float: left;
     width: 49%;
     height: 100%;
     padding-right: 2%;
 }
+
 .product .right {
     float: right;
     width: 49%;
@@ -18,7 +20,8 @@
 }
 
 .product .right .product-img {
-    
+    height: 75vh;
+    display: flex;
 }
 
 .product .right .product-img img {
@@ -28,9 +31,9 @@
 
 .product .left .product-info {
     display: flex;
+    height: 75vh;
     flex-direction: column;
     justify-content: space-evenly;
-    height: 100%;
 }
 
 .product .left .product-info p {
