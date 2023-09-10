@@ -1,69 +1,12 @@
-<!DOCTYPE html>
+{% extends 'base.html' %}
 
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- <link rel="stylesheet" href="../static/icons/css/all.min.css " /> -->
-    <link rel="stylesheet" href="../static/css/normalize.css " />
-    <link rel="stylesheet" href="../static/css/style.css " />
-    <link rel="stylesheet" href="../static/css/menu.css " />
-    <link rel="stylesheet" href="../static/css/side-img.css " />
-    <link rel="stylesheet" href="../static/css/landing-page.css " />
-    <link rel="stylesheet" href="../static/css/about.css " />
-    <link rel="stylesheet" href="../static/css/testimonials.css " />
-    <link rel="stylesheet" href="../static/css/faq.css " />
-    <link rel="stylesheet" href="../static/css/testimonials2.css " />
-    <link rel="stylesheet" href="../static/css/contact.css " />
-    <link rel="stylesheet" href="../static/css/framework.css " />
-    <link rel="stylesheet" href="../static/css/login.css " />
-    <link rel="stylesheet" href="../static/css/signup.css " />
-    <link rel="stylesheet" href="../static/css/product.css " />
-    <style>
-        .product {
-            height: 50%;
-        }
-        img {
-            width: 100px;
-        }
-    </style>
-    <title>  
-      Noda Cart
-    </title>
-  </head>
-  <body>
-    <div class="menu-overlay"></div>
+{% load static %}
 
-    <ul class="menu-box">
-      <li>
-        <div class="menu-button">
-          <span></span>
-          <span></span>
-        </div>
-      </li>
-      <li><a href="{% url 'login' %}">تسجيل دخول</a></li>
-      <li data-section=".about">معلومات عن بعض منتجاتنا</li>
-      <li data-section=".testimonials">قالو عنا</li>
-      <li data-section=".faq">الأسئلة التي يسألها عملائنا</li>
-      <li data-section=".contact">تواصل معنا</li>
-    </ul>
+{% block title %}
+    Noda Healthy Products
+{% endblock %}
 
-    <div class="menu-overlay"></div>
-
-    <ul class="menu-box">
-        <li>
-            <div class="menu-button">
-                <span></span>
-                <span></span>
-            </div>
-        </li>
-        <li data-section=".about">تسجيل دخول</li>
-        <li data-section=".about">معلومات عن بعض منتجاتنا</li>
-        <li data-section=".testimonials">قالو عنا</li>
-        <li data-section=".faq">الأسئلة التي يسألها عملائنا</li>
-        <li data-section=".contact">تواصل معنا</li>
-    </ul>
+{% block content %}
 
     <!-- Start Landing Page  -->
 
@@ -84,11 +27,19 @@
                         </p>
                         <!-- <div>السعر: 99</div> -->
                         <div>السعر: {{ product.price }}</div>
-                        <div>المجموع الكلي: 1200 جنية</div>
+                        <div>
+                            العدد: 
+                            <input type="number">
+                        </div>
+                        <div>المجموع الكلي: 1200 جنية</div>                
                         <br>
-                        <a href="#cart-plus" class="add-to-cart">
+                        <a href="/purchase" class="add-to-cart">
                             <i class="fa fa-shopping-bag"></i>
                             <span>اتمام عملية الشراء</span>
+                        </a>
+                        <a href="/products" class="add-to-cart">
+                            <i class="fa fa-shopping-bag"></i>
+                            <span>متابعة التسوق</span>
                         </a>
                     </div>
                 </div>
@@ -99,70 +50,7 @@
                 </div>
             </div>
         </div>
-        <nav>
-            <div class="menu-button">
-                <span></span>
-                <span></span>
-            </div>
-            <div class="logo">Noda Healthy Products</div>
-            <div class="contact-link">
-                <div>تسجيل دخول</div>
-                <div>تواصل معنا</div>
-            </div>
-        </nav>
     </div>
 
     <!-- End Landing Page  -->
-
-
-    <!-- Start Contact -->
-
-    <div class="contact">
-      <div class="container">
-        <h2>تواصل معنا</h2>
-        <p>تصفح صفحتنا علي الفيسبوك أو أنضم لجروب الواتس اب</p>
-        <hr />
-        <footer>
-          <div class="logo">Noda Healthy Products</div>
-
-          <ul>
-            <li>
-              <a
-                target="_blank"
-                href="https://www.facebook.com/groups/1544081465733863/"
-              >
-                <label>صفحة الفيس بوك</label>
-                <i class="fab fa-facebook"></i>
-              </a>
-            </li>
-            <li>
-              <a>
-                <label>الواتس اب 01068977219</label>
-                <i class="fab fa-whatsapp"></i>
-              </a>
-            </li>
-            <li>
-              <a
-                target="_blank"
-                href="https://chat.whatsapp.com/JFMbo2s9Hi63xrJxxHo6tD"
-              >
-                <label>مجموعة الواتس اب</label>
-                <i class="fa fa-layer-group"></i>
-              </a>
-            </li>
-            <li>
-              <a target="_blank" href="https://t.me/+Q6Xk0FG2idg0NzZk">
-                <label>مجموعة التليجرام</label>
-                <i class="fab fa-telegram"></i>
-              </a>
-            </li>
-          </ul>
-        </footer>
-      </div>
-    </div>
-
-    <!-- End Contact -->
-
-    <script src="../static/js/app.js' %}"></script>
-  </body>
-</html>
+{% endblock %}

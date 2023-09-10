@@ -1,37 +1,12 @@
+{% extends 'base.html' %}
+
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
+{% block title %}
+    Noda Healthy Products
+{% endblock %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Noda Healthy Products - Product Name</title>
-    <link rel="stylesheet" href="{% static 'icons/css/all.min.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/normalize.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/menu.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/landing-page.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/product.css' %}" />
-</head>
-
-<body>
-    <div class="menu-overlay"></div>
-
-    <ul class="menu-box">
-        <li>
-            <div class="menu-button">
-                <span></span>
-                <span></span>
-            </div>
-        </li>
-        <li data-section=".about">تسجيل دخول</li>
-        <li data-section=".about">معلومات عن بعض منتجاتنا</li>
-        <li data-section=".testimonials">قالو عنا</li>
-        <li data-section=".faq">الأسئلة التي يسألها عملائنا</li>
-        <li data-section=".contact">تواصل معنا</li>
-    </ul>
-
+{% block content %}
     <!-- Start Landing Page  -->
 
     <div class="landing-page">
@@ -52,9 +27,13 @@
                         <!-- <div>السعر: 99</div> -->
                         <div>السعر: {{ product.price }}</div>
                         <br>
-                        <a href="#cart-plus" class="add-to-cart">
+                        <!-- <a href="#cart-plus" class="add-to-cart"> -->
+                        <a href="/cart" class="add-to-cart">
                             <i class="fa fa-shopping-bag"></i>
                             <span>أضف إلي حقيبة التسوق</span>
+                        </a>
+                        <a href="/products" class="add-to-cart">
+                            <span>متابعة التسوق</span>
                         </a>
                     </div>
                 </div>
@@ -65,21 +44,8 @@
                 </div>
             </div>
         </div>
-        <nav>
-            <div class="menu-button">
-                <span></span>
-                <span></span>
-            </div>
-            <div class="logo">Noda Healthy Products</div>
-            <div class="contact-link">
-                <div>تسجيل دخول</div>
-                <div>تواصل معنا</div>
-            </div>
-        </nav>
     </div>
 
     <!-- End Landing Page  -->
 
-</body>
-
-</html>
+{% endblock %}

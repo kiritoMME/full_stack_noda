@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block style %}
+
+<link rel="stylesheet" href="{% static 'css/purchase.css'%}" />
+{% endblock %}
+
+{% block title %}
+    Mohammed
+{% endblock %}
+
+{% block content %}
+
+<form>
+    <div class="container">
+
+        <p>
+            <label for="">
+            الاسم:
+            </label>
+            <input type="text" value="Mohammed Mohssen">
+        </p>
+
+        <p>
+            <label for="">
+            رقم الهاتف:
+            </label>
+            <input type="number" value="0109273492">
+        </p>
+        
+        <p>
+            <label for="">
+            محافظة:
+            </label>
+            <select id="country" name="country">
+                <option selected="selected">القاهرة</option>
+                <option>الغربية</option>
+                <option>الإسكندرية</option>
+                <option>الإسماعيلية</option>
+                <option>كفر الشيخ</option>
+                <option>أسوان</option>
+                <option>أسيوط</option>
+                <option>الأقصر</option>
+                <option>الوادي الجديد</option>
+                <option>شمال سيناء</option>
+                <option>البحيرة</option>
+                <option>بني سويف</option>
+                <option>بورسعيد</option>
+                <option>البحر الأحمر</option>
+                <option>الجيزة</option>
+                <option>الدقهلية</option>
+                <option>جنوب سيناء</option>
+                <option>دمياط</option>
+                <option>سوهاج</option>
+                <option>السويس</option>
+                <option>الشرقية</option>
+                <option>الغربية</option>
+                <option>الفيوم</option>
+                <option>القليوبية</option>
+                <option>قنا</option>
+                <option>مطروح</option>
+                <option>المنوفية</option>
+                <option>المنيا</option>
+            </select>
+        </p>
+
+        <p>
+            <label for="">
+                العنوان بالتفصيل:
+            </label>
+            <input type="text" value="العنوان بالتفصيل">
+        </p>
+        
+        <h4>طريقة الدفع</h4>
+        <input type="radio" id="cashondelivery" name="fav_payment" value="cod">
+        <label for="cashondelivery">الدفع عند الإستلام</label><br>
+        <input type="radio" id="creditcard" name="fav_payment" value="credit">
+        <label for="creditcard">الدفع ببطاقة الإئتنمان</label><br><br>
+        
+        <p>
+            <input type="submit" value="إتمام العملية">
+        </p>
+    </div>
+    
+</form>
+
+{% endblock %}

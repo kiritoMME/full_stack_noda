@@ -13,7 +13,7 @@
                 <h4>تسجيل الدخول</h4>
                 <form action="/login/" method="POST">
                     {% csrf_token %}
-                    <input name="mobile" type="text" placeholder="رقم الهاتف أو الإيميل (email)">
+                    <input name="mobile" type="text" placeholder="رقم الهاتف">
                     <input name="password" type="password" placeholder="كلمة السر">
                     <input type="submit" value="تسجيل الدخول">
                 </form>

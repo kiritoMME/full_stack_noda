@@ -21,6 +21,10 @@
     <link rel="stylesheet" href="{% static 'css/login.css'%}" />
     <link rel="stylesheet" href="{% static 'css/signup.css'%}" />
     <link rel="stylesheet" href="{% static 'css/product.css'%}" />
+    <link rel="stylesheet" href="{% static 'css/cart.css'%}" />
+    {% block style %}
+
+    {% endblock %}
     <title>  
       {% block title %}
       
@@ -44,9 +48,37 @@
       <li data-section=".contact">تواصل معنا</li>
     </ul>
 
-    {% block content %}
     
-    {% endblock %}
+    <nav>
+        <!-- <div class="menu-button">
+            <span></span>
+            <span></span>
+          </div> -->
+        <div class="logo">
+          <a href="/">
+            Noda Healthy Products
+          </a>
+        </div>
+
+        <ul>
+          <li>
+            <i class="fa fa-user"></i>
+            <a href="/profile">Mohammed</a>
+          </li>
+          <li>
+            <a href="/cart" class="cart-link"> 
+              <i class="fa fa-shopping-bag"></i>
+              <span class="cart-items-no">1</span>
+            </a>
+          </li>
+        </ul>
+    </nav>
+
+    <main>
+        {% block content %}
+        
+        {% endblock %}
+    </main>
 
     <!-- Start Contact -->
 

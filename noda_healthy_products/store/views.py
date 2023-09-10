@@ -61,3 +61,15 @@ def verify_code(request):
 
 def product(request, pk):
     return render(request, 'product.html', {'product': Product.objects.get(id=pk)})
+
+def products(request):
+    return render(request, 'products.html')
+
+def cart(request):
+    return render(request, 'cart.html')
+
+def profile(request):
+    return render(request, 'profile.html')
+
+def purchase(request):
+    return render(request, 'purchase.html')

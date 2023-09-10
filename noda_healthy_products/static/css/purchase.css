@@ -1,0 +1,12 @@
+form {
+    direction: rtl;
+    padding: 120px 0 30px 0;
+    background: var(--color1);
+    height: 100vh;
+    position: relative;
+}
+
+label {
+    display: inline-block;
+    width: 15vw;
+}
