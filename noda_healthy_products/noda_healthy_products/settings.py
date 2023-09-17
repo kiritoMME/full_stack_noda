@@ -42,6 +42,7 @@ INSTALLED_APPS = [
 
     'User',
     'store',
+    # 'captcha',
     'rest_framework',
 
 ]

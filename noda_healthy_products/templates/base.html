@@ -63,12 +63,12 @@
         <ul>
           <li>
             <i class="fa fa-user"></i>
-            <a href="/profile">Mohammed</a>
+            <a href="/profile">{{ user.first_name }}</a>
           </li>
           <li>
             <a href="/cart" class="cart-link"> 
               <i class="fa fa-shopping-bag"></i>
-              <span class="cart-items-no">1</span>
+              <span class="cart-items-no">{{ user.products_in_cart }}</span>
             </a>
           </li>
         </ul>

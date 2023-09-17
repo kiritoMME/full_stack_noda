@@ -11,45 +11,40 @@
     <!-- Start Landing Page  -->
 
     <div class="landing-page">
+        {% for order in orders %}
         <div class="product">
             <div class="container">
                 <div class="left">
                     <div class="product-info">
-                        <!-- <h3>فوطة جرين واي</h3> -->
-                        <h3>{{ product.name }}</h3>
-                        <!-- <p>
-                            عارفين الفوطه الي بتبقي فإيدك طول منتي واقفه في المطبخ حاجه وقعت
-                            فتمسحيها، عصير اتكب فتلميه، تلمعي بيها بيها روخامتك، بلمعي بيها
-                        السراميك اللي ورا الحوض واللي فوق الرخامه.
-                        </p> -->
-                        <p>
-                            {{ product.description }}
-                        </p>
-                        <!-- <div>السعر: 99</div> -->
-                        <div>السعر: {{ product.price }}</div>
+                        <h3>{{ order.product.name }}</h3>
+                        <div>السعر الوحدة: {{ order.product.price }}</div>
+                        <div>السعر: {{ order.price }}</div>
                         <div>
                             العدد: 
-                            <input type="number">
+                            <form action="/changeCountInCart/{{ product.id }}" method="POST">
+                                <input type="number" value="{{ order.count }}">
+                            </form>
                         </div>
-                        <div>المجموع الكلي: 1200 جنية</div>                
-                        <br>
-                        <a href="/purchase" class="add-to-cart">
-                            <i class="fa fa-shopping-bag"></i>
-                            <span>اتمام عملية الشراء</span>
-                        </a>
-                        <a href="/products" class="add-to-cart">
-                            <i class="fa fa-shopping-bag"></i>
-                            <span>متابعة التسوق</span>
-                        </a>
                     </div>
                 </div>
                 <div class="right">
                     <div class="product-img">
-                        <img src="{{ product.image.url }}" alt="{{ product.name }}" />
+                        <img src="{{ order.product.image.url }}" alt="{{ order.product.name }}" />
                     </div>
                 </div>
             </div>
         </div>
+        {% endfor %}
+        <br>
+        <div>المجموع الكلي: 1200 جنية</div>
+        <a href="/purchase" class="add-to-cart">
+            <i class="fa fa-shopping-bag"></i>
+            <span>اتمام عملية الشراء</span>
+        </a>
+        <a href="/products" class="add-to-cart">
+            <i class="fa fa-shopping-bag"></i>
+            <span>متابعة التسوق</span>
+        </a>
     </div>
 
     <!-- End Landing Page  -->

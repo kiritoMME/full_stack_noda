@@ -2,6 +2,10 @@
 
 {% load static %}
 
+{% block title %}
+    Noda Healthy Products | Home
+{% endblock %}
+
 {% block content %}
 
 <!-- Start Landing Page  -->
@@ -32,56 +36,23 @@
 <div class="about">
     <div class="container">
         <h2>منتجاتنا</h2>
-
-        <a href="product/1">
+        {% for prod in featured_products %}
+        <a href="product/{{ prod.id }}">
             <div class="about-box">
                 <div class="about-img">
-                    <img src="{% static 'imgs/about1.jpg'%}" alt="" />
+                    <img src="/media/{{ prod.image }}" alt="" />
                 </div>
                 <div class="about-text">
-                    <h3>فوطة التراب</h3>
-                    <p>
-                    أحيانًا نحتاج إلى تنظيف المنزل ولا يوجد وقت لذلك، حينها تأتي ليفة الفايبر متعددة الاستخدامات لأداء المهمة بسرعة وكفاءة وإتقان؛ فهي مصممة للتعامل مع أي أوساخ بفعالية وأمان. فالنسيج الذي صنع منه الفايبر يتميز بقدرته العالية على الامتصاص
-                </p>
+                    <h3>{{ prod.name }}</h3>
+                    <p>{{ prod.description }}</p>
                 </div>
             </div>
         </a>
-
-        <a href="products.html">
-            <div class="about-box">
-                <a href="product.html">
-                    <div class="about-img">
-                        <img src="{% static 'imgs/about2.jpg'%}" alt="" />
-                    </div>
-                </a>
-                <div class="about-text">
-                    <h3>قفاز الإستحمام</h3>
-                    <p>
-                        للقفاز جانبان: الجانب الخشن يقشر خلايا الجلد الميتة، أما الجانب الناعم فينظف البشرة. كما أنه مصنوع من نسج ألياف خاصة تساعد على التدليك الخفيف، وتنشيط الدورة الدموية، وتجديد خلايا الجلد.
-                    </p>
-                </div>
-            </div>
-        </a>
-
-        
-        <a href="products.html">
-            <div class="about-box">
-                <div class="about-img">
-                    <img src="{% static 'imgs/about3.jpg'%}" alt="" />
-                </div>
-                <div class="about-text">
-                    <h3>فوطة السيارة</h3>
-                    <p>
-                        نقدم لكم المنشفة المثالية لوضعها في صندوق تابلوه السيارة واستخدامها لتنظيف أي شيء في السيارة. ليس لديك وقت للذهاب إلى المغسلة؟ لا داعي للقلق من الأتربة والأوساخ والسوائل المسكوبة على أسطح السيارة، فالمنشفة ستؤدي المهمة في أقل وقت
-                    </p>
-                </div>
-            </div>
-        </a>
-
+        {% endfor %}
         <div class="clearfix"></div>
         
         <p class="more">
-          <a href="/products">مزيد من المنتجات...</a>
+        <a href="/products">مزيد من المنتجات...</a>
         </p>
 
     </div>

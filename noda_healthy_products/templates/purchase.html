@@ -20,22 +20,23 @@
             <label for="">
             الاسم:
             </label>
-            <input type="text" value="Mohammed Mohssen">
+            <input disabled type="text" value="{{ user.first_name }} {{ user.last_name}}">
         </p>
 
         <p>
             <label for="">
             رقم الهاتف:
             </label>
-            <input type="number" value="0109273492">
+            <input disabled type="text" value="{{ user.mobile }}">
         </p>
         
         <p>
             <label for="">
             محافظة:
             </label>
-            <select id="country" name="country">
-                <option selected="selected">القاهرة</option>
+            <select name="city" disabled id="country" name="country">
+                <option selected value="{{ user.city.id }}">{{user.city.name}}</option>
+                <!-- <option selected="selected">القاهرة</option>
                 <option>الغربية</option>
                 <option>الإسكندرية</option>
                 <option>الإسماعيلية</option>
@@ -62,7 +63,7 @@
                 <option>قنا</option>
                 <option>مطروح</option>
                 <option>المنوفية</option>
-                <option>المنيا</option>
+                <option>المنيا</option> -->
             </select>
         </p>
 
@@ -70,7 +71,7 @@
             <label for="">
                 العنوان بالتفصيل:
             </label>
-            <input type="text" value="العنوان بالتفصيل">
+            <input disabled type="text" value="العنوان بالتفصيل">
         </p>
         
         <h4>طريقة الدفع</h4>
