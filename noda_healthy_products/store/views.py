@@ -133,6 +133,7 @@ def pay(request):
             user.products_in_cart -= cnt
             conf.save()
             user.save()
+        return redirect('myOrders')
     else: return redirect('/purchace')
 
 def myOrders(request):
