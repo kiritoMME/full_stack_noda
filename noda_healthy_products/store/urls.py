@@ -17,4 +17,11 @@ urlpatterns = [
     path('editProfile/', views.editProfile, name='editProfile'),
     path('changeProfile/', views.changeProfile, name='changeProfile'),
     path('purchase/', views.purchase, name='purchase'),
+    path('pay/', views.pay, name='pay'),
+    path('myOrders/', views.myOrders, name='myOrders'),
+
+
+    # admins
+    path('adminOrders/', views.adminOrders, name='adminOrders'),
+    path('adminConfOrderDetails/<str:id>/', views.adminConfOrderDetails, name='adminConfOrderDetails'),
 ]

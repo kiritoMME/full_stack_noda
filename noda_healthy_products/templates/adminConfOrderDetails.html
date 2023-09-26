@@ -1,0 +1,26 @@
+
+
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="adminOrders">
+  <h1>{{ conf_order.user }}</h1>
+  <h2>{{ conf_order.status }}</h2>
+  <hr>
+  <p>address: {{ conf_order.address }}</p>
+  <p>mobile: {{ conf_order.mobile }}</p>
+  <p>city: {{ conf_order.city }}</p>
+  <p>price: {{ conf_order.price }}</p>
+  <hr>
+  {% for order in orders %}
+    <div class="order">
+      <p>Name:          {{ order.product }}         </p>
+      <p>count:         {{ order.count }}           </p>
+      <p>priceOfOne:    {{ order.product.price }}   </p>
+      <p>priceOfCount:  {{ order.price }}           </p>
+    </div>
+  {% endfor %}
+</div>
+{% endblock %}
