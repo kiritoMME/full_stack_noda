@@ -17,6 +17,7 @@ nav {
     transform: translateX(-50%);
     z-index: 1000;
 }
+
 nav .logo {
     font-family: var(--header-font);
     font-size: 25px;
