@@ -8,12 +8,13 @@
 {% endblock %}
 
 {% block title %}
-    Mohammed
+    purchase
 {% endblock %}
 
 {% block content %}
 
-<form>
+<form method="POST" action="/pay/">
+    {% csrf_token %}
     <div class="container">
 
         <p>
@@ -73,15 +74,15 @@
             </label>
             <input disabled type="text" value="العنوان بالتفصيل">
         </p>
-        
+        <a href="/editProfile/">Edit</a>
         <h4>طريقة الدفع</h4>
-        <input type="radio" id="cashondelivery" name="fav_payment" value="cod">
+        <input type="radio" id="cashondelivery" name="fav_payment" value="cash" checked>
         <label for="cashondelivery">الدفع عند الإستلام</label><br>
         <input type="radio" id="creditcard" name="fav_payment" value="credit">
         <label for="creditcard">الدفع ببطاقة الإئتنمان</label><br><br>
         
         <p>
-            <input type="submit" value="إتمام العملية">
+            <input autofocus type="submit" value="إتمام العملية">
         </p>
     </div>
     

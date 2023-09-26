@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="orders">
+  {% for order in all_orders %}
+    <div class="order">
+    <p>{{ order.product.name }}</p>
+    <p>{{ order.count }}</p>
+    <p>{{ order.price }}</p>
+    <img src="{{ order.product.image.url }}" alt="'{{ order.product.name }}' un found img" width="100px">
+    </div>
+  {% endfor %}
+</div>
+{% endblock %}

@@ -43,7 +43,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255)
     mobile = models.CharField(unique=True, max_length=50)
-    address = models.CharField(max_length=255)
+    address = models.CharField(max_length=100000)
     # city = models.CharField(max_length=1000)
     city = models.ForeignKey(City, on_delete=models.CASCADE, blank=True, null=True)
 
@@ -61,7 +61,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     REQUIRED_FIELDS = ['first_name', 'last_name']
 
     def __str__(self):
-        return f'{self.first_name} {self.last_name}'
+        return f' {self.first_name} {self.last_name}'
 
     class Meta:
         verbose_name = 'User'
