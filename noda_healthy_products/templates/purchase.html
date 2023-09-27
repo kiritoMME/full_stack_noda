@@ -3,12 +3,11 @@
 {% load static %}
 
 {% block style %}
-
-<link rel="stylesheet" href="{% static 'css/purchase.css'%}" />
+    <link rel="stylesheet" href="{% static 'css/purchase.css'%}" />
 {% endblock %}
 
 {% block title %}
-    purchase
+    Purchase
 {% endblock %}
 
 {% block content %}
@@ -18,26 +17,34 @@
     <div class="container">
 
         <p>
-            <label for="">
-            الاسم:
+            <label for="first_name" class="form-label">
+                الاسم الاول
             </label>
-            <input disabled type="text" value="{{ user.first_name }} {{ user.last_name}}">
+            <input class="form-control" id="first_name" name="first_name" disabled type="text" value="{{ user.first_name }}">
         </p>
-
+            
         <p>
-            <label for="">
-            رقم الهاتف:
+            <label for="last_name" class="form-label">
+                الاسم الاخير
             </label>
-            <input disabled type="text" value="{{ user.mobile }}">
+            <input class="form-control" id="last_name" name="last_name" disabled type="text" value="{{ user.last_name}}">
         </p>
         
         <p>
-            <label for="">
-            محافظة:
+            <label for="phone_no" class="form-label">
+                رقم الهاتف
             </label>
-            <select name="city" disabled id="country" name="country">
+            <input class="form-control" id="phone_no" name="mobile" disabled type="text" value="{{ user.mobile }}">
+        </p>
+        
+        <p>
+            <label for="city" class="form-label">
+            محافظة
+            </label>
+            <select class="form-select" id="city" name="city" disabled name="country">
                 <option selected value="{{ user.city.id }}">{{user.city.name}}</option>
-                <!-- <option selected="selected">القاهرة</option>
+                <!-- 
+                <option selected="selected">القاهرة</option>
                 <option>الغربية</option>
                 <option>الإسكندرية</option>
                 <option>الإسماعيلية</option>
@@ -69,20 +76,21 @@
         </p>
 
         <p>
-            <label for="">
-                العنوان بالتفصيل:
+            <label for="address" class="form-label">
+                العنوان بالتفصيل
             </label>
-            <input disabled type="text" value="العنوان بالتفصيل">
+            <input class="form-control" id="address" disabled type="text" value="العنوان بالتفصيل">
         </p>
-        <a href="/editProfile/">Edit</a>
+        <a class="btn btn-secondary" href="/editProfile/">تعديل</a>
+        <br>
+        <br>
         <h4>طريقة الدفع</h4>
-        <input type="radio" id="cashondelivery" name="fav_payment" value="cash" checked>
-        <label for="cashondelivery">الدفع عند الإستلام</label><br>
-        <input type="radio" id="creditcard" name="fav_payment" value="credit">
-        <label for="creditcard">الدفع ببطاقة الإئتنمان</label><br><br>
+        <input class="form-check-input" type="radio" id="cashondelivery" name="fav_payment" value="cash" checked>
+        <label class="form-check-label" for="cashondelivery">الدفع عند الإستلام</label><br>
         
+        <br>
         <p>
-            <input autofocus type="submit" value="إتمام العملية">
+            <input class="btn btn-dark" autofocus type="submit" value="إتمام العملية">
         </p>
     </div>
     

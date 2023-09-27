@@ -1,0 +1,15 @@
+.cart {
+    margin-top: 80px;
+    direction: rtl;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+}
+
+.cart .left .product-img img {
+    width: 50%;
+}
+
+.cart .btn {
+    margin: 10px 0;
+}

@@ -1,11 +1,13 @@
 {% extends 'base.html' %}
+
 {% load static %}
 
-
+{% block style %}
+    <link rel="stylesheet" href="{% static 'css/signup.css' %}">
+{% endblock %}
 
 <!-- Start Landing Page  -->
 {% block content %}
-<link rel="stylesheet" href="{% static 'css/signup.css' %}">
 
 <div class="landing-page">
     <div class="container">

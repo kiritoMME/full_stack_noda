@@ -1,15 +1,37 @@
 {% extends 'base.html' %}
-{% load static %}
+
+{% load static %}]
+
+{% block style %}
+  <link rel="stylesheet" href="{% static 'css/orders.css' %}">
+{% endblock %}
 
 {% block content %}
-<div class="orders">
-  {% for order in all_orders %}
-    <div class="order">
-    <p>{{ order.product.name }}</p>
-    <p>{{ order.count }}</p>
-    <p>{{ order.price }}</p>
-    <img src="{{ order.product.image.url }}" alt="'{{ order.product.name }}' un found img" width="100px">
+  <div class="orders">
+    <div class="container">
+      {% for order in all_orders %}
+        <div class="card">
+          <div class="row">
+            <div class="col-8">
+              <div class="card-body">
+                <h5 class="card-title">{{ order.product.name }}</h5>
+                <br>
+                <label for="">العدد</label>
+                <p class="card-text form-control">
+                  {{ order.count }}
+                </p>
+                <br>
+                <label for="">السعر</label>
+                <p class="card-text form-control">{{ order.price }}</p>
+              </div>
+            </div>
+            <div class="col-4">
+              <img class="img-fluid rounded-start" src="{{ order.product.image.url }}" alt="'{{ order.product.name }}' un found img" width="100px">
+            </div>
+          </div>
+        </div>
+        <br>
+      {% endfor %}
     </div>
-  {% endfor %}
-</div>
+  </div>
 {% endblock %}

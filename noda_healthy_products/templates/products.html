@@ -2,21 +2,25 @@
 
 {% load static %}
 
+{% block style %}
+    <link rel="stylesheet" href="{% static 'css/products.css'%}" />
+{% endblock %}
+
 {% block title %}
     Noda Healthy Products
 {% endblock %}
 
 {% block content %}
-<div class="about">
+<div class="products">
     <div class="container">
         <h2>منتجاتنا</h2>
         {% for prod in products %}
         <a href="/product/{{ prod.id }}">
-            <div class="about-box">
-                <div class="about-img">
+            <div class="product">
+                <div class="img-container">
                     <img src="/media/{{ prod.image }}" alt="" />
                 </div>
-                <div class="about-text">
+                <div class="product-text">
                     <h3>{{ prod.name }}</h3>
                     <p>{{ prod.description }}</p>
                 </div>

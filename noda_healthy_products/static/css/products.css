@@ -1,28 +1,31 @@
-.about {
+.products {
     padding: 80px 0;
+    background: #f3f3f3;
 }
 
-.about .about-box {
+.products .product {
     padding: 0 20px;
-    min-height: 450px;
+    margin-bottom: 20px;
+    /* min-height: 450px; */
+    background: #fff;
     text-align: center;
     float: left;
     width: calc(94% / 3);
+    border-radius: 10px;
     transition: 0.3s ease;
 }
 
-.about .about-box:hover {
-    border-radius: 15px;
+.products .product:hover {
     box-shadow: 0px 0px 16px -2px rgba(0, 0, 0, 0.35);
 }
 
 @media (max-width: 992px) {
-    .about .about-box:not(:first-of-type) {
+    .products .product:not(:first-of-type) {
         float: left;
         width: calc(96% / 2);
     }
 
-    .about .about-box:first-of-type {
+    .products .product:first-of-type {
         float: left;
         width: 100%;
         margin-bottom: 40px;
@@ -30,30 +33,30 @@
 }
 
 @media (max-width: 767px) {
-    .about .about-box {
+    .products .product {
         float: none !important;
         width: 100% !important;
         margin-bottom: 40px !important;
     }
 }
 
-.about .about-box {
+.products .product {
     margin-right: 2%;
 }
 
-.about .about-box .about-img {}
+.products .product .img-container {}
 
-.about .about-box .about-img img {
+.products .product .img-container img {
     width: 200px;
 }
 
-.about .about-box .about-text {}
+.products .product .product-text {}
 
-.about .about-box .about-text h3 {
+.products .product .product-text h3 {
     color: #000
 }
 
-.about .about-box .about-text p {
+.products .product .product-text p {
     color: #777;
     line-height: 1.6;
     font-family: var(--header-font);

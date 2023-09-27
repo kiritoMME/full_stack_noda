@@ -1,12 +1,13 @@
 {% extends 'base.html' %}
+
 {% load static %}
 
+{% block style %}
+    <link rel="stylesheet" href="{% static 'css/login.css'%}" />
+{% endblock %}
 
-
-<!-- Start Landing Page  -->
 {% block content %}
-<link rel="stylesheet" href="{% static 'css/login.css' %}">
-<div class="landing-page">
+<div class="login-test">
     <div class="container">
         <div class="login-container">
             <div class="login">
@@ -24,18 +25,5 @@
             </div>
         </div>
     </div>
-    <nav>
-        <div class="menu-button">
-            <span></span>
-            <span></span>
-        </div>
-        <div class="logo">
-            <a href="/">
-                Noda Healthy Products
-            </a>
-        </div>
-    </nav>
 </div>
-
-<!-- End Landing Page  -->
 {% endblock %}
