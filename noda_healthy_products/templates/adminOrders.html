@@ -2,24 +2,31 @@
 
 {% load static %}
 
+{% block style %}
+  <link rel="stylesheet" href="{% static 'css/adminOrders.css' %}">
+{% endblock %}
+
 {% block content %}
-  <div class="adminOrders">
-    {% for user, conf_orders in all_orders.items %}
-      <h1>{{ user }}</h1>
-      {% for conf_order, orders in conf_orders.items %}
-        <a class="conf" href="/adminConfOrderDetails/{{ conf_order.id }}">
-          <h2>{{ conf_order.status }}</h2>
-          {% for order in orders %}
-            <div class="order">
-              <p>Name:          {{ order.product }}         </p>
-              <p>count:         {{ order.count }}           </p>
-              <p>priceOfOne:    {{ order.product.price }}   </p>
-              <p>priceOfCount:  {{ order.price }}           </p>
-            </div>
+  <div class="all-users-purchased-orders">
+    <div class="container">
+      {% for user, conf_orders in all_orders.items %}
+        <h1>{{ user }}</h1>
+        <div class="user-orders">
+          {% for conf_order, orders in conf_orders.items %}
+            <a class="conf" href="/adminConfOrderDetails/{{ conf_order.id }}">
+              <h2>{{ conf_order.status }}</h2>
+              {% for order in orders %}
+                <div class="order">
+                  <p>اسم المنتج:    {{ order.product }}         </p>
+                  <p>العدد:         {{ order.count }}           </p>
+                  <p>سعر الوحدة:    {{ order.product.price }}   </p>
+                  <p>السعر الكلي:   {{ order.price }}            </p>
+                </div>
+              {% endfor %}
+            </a>
           {% endfor %}
-        </a>
+        </div>
       {% endfor %}
-      <hr>
-    {% endfor %}
+    </div>
   </div>
 {% endblock %}
