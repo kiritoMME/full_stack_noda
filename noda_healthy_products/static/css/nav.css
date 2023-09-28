@@ -1,6 +1,38 @@
-/* Start Nav Bar  */
+nav.bg-body-tertiary {
+    direction: rtl;
+    background-color: transparent !important;
+    position: fixed;
+    width: 100%;
+}
 
-nav {
+nav ul li span {
+    direction: ltr;
+    color: #fff;
+    background: red;
+    border-radius: 50%;
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    font-size: 15px;
+    position: relative;
+    top: 7px;
+    left: 10px;
+}
+
+nav a.navbar-brand {
+    font-family: var(--header-font);
+    font-size: 25px;
+    color: #000;
+}
+
+@media (max-width: 567px) {
+    nav a.navbar-brand {
+        font-size: 20px;
+    }
+}
+
+/* nav {
     display: flex;
     justify-content: space-between;
     width: 90%;
@@ -12,32 +44,18 @@ nav {
     z-index: 1000;
 }
 
-nav .logo {
-    font-family: var(--header-font);
-    font-size: 25px;
+nav .right {
     display: flex;
-    align-items: center
-}
-
-nav .logo a {
-    color: #000;
-    text-decoration: none;
-    transition: all 0.2s ease-in-out;
-}
-
-nav .logo a:hover {
-    color: #4e4e4e;
-}
-
-@media (max-width: 567px) {
-    nav .logo {
-        font-size: 20px;
-    }
+    align-items: center;
+    min-width: 30%;
 }
 
 nav ul {
     list-style-type: none;
     display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 0;
 }
 
 nav ul li {}
@@ -54,21 +72,4 @@ nav ul li:last-of-type a {
 nav ul li .fa:before {
     font-size: 20px;
 }
-
-nav ul li span {
-    color: #fff;
-    background: red;
-    border-radius: 50%;
-    display: inline-block;
-    width: 15px;
-    height: 15px;
-    text-align: center;
-    line-height: 15px;
-    font-size: 15px;
-    position: relative;
-    top: 7px;
-    right: 10px;
-}
-
-
-/* End Nav Bar  */
+*/
