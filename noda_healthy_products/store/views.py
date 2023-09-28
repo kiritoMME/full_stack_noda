@@ -88,7 +88,8 @@ def addToCart(request, productid, count):
     return redirect('/cart')
 
 def cart(request):
-    return render(request, 'cart.html', {"orders": Order.objects.filter(user= request.user,is_confirmed=False)})
+    orders = Order.objects.filter(user= request.user, is_confirmed=False)
+    return render(request, 'cart.html', {"orders": orders, 'orders_exist' : len(orders) > 0 })
 
 def profile(request):
     return render(request, 'profile.html',{"noedit": True, "city": request.user.city })
@@ -113,10 +114,16 @@ def changeProfile(request):
     return redirect('/profile')
 
 def purchase(request):
+    if request.user.products_in_cart < 1: 
+        messages.error(request, "لا يوجد اي منتجات فى السله")
+        return redirect('/')
     return render(request, 'purchase.html')
 
 def pay(request):
-    if request.method == "POST":
+    if request.user.products_in_cart < 1: 
+        messages.error(request, "لا يوجد اي منتجات فى السله")
+        return redirect('/')
+    elif request.method == "POST":
         fav = request.POST.get('fav_payment')
         if fav == 'cash':
             sm = 0
