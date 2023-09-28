@@ -3,56 +3,60 @@
 {% load static %}
 
 {% block style %}
-    <link rel="stylesheet" href="{% static 'css/cart.css'%}" />
+  <link rel="stylesheet" href="{% static 'css/cart.css'%}" />
 {% endblock %}
 
 {% block title %}
-    Noda Healthy Products
+Noda Healthy Products
 {% endblock %}
 
 {% block content %}
-    <div class="cart">
-        <div class="container">
-            {% for order in orders %}
-                <div class="product">
-                    <div class="row">
-                        <div class="right col-6">
-                            <div class="product-info">
-                                <h3>{{ order.product.name }}</h3>
-                                <div>سعر الوحدة: {{ order.product.price }}</div>
-                                <div>السعر الاجمالي: {{ order.price }}</div>
-                                <label for="number" class="form-label">
-                                    العدد: 
-                                </label>
-                                <form action="/changeCountInCart/{{ product.id }}" method="POST">
-                                    <input class="form-control" type="number" id="number" value="{{ order.count }}">
-                                </form>
-                                <form action="delete/{{ product.id }}" method="POST">
-                                    <input class="btn btn-danger" type="submit" value="حذف">
-                                </form>
-                            </div>
-                        </div>
-                        <div class="left col-6">
-                            <div class="product-img">
-                                <img src="{{ order.product.image.url }}" alt="{{ order.product.name }}" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            {% endfor %}
-            <br>
-            <h4>المجموع الكلي: 1200 جنية</h4>
-            <br>
-            <a href="/purchase" class="btn btn-dark">
-                <i class="fa fa-shopping-bag"></i>
-                <span>اتمام عملية الشراء</span>
-            </a>
-            <a href="/products" class="btn btn-dark">
-                <i class="fa fa-shopping-bag"></i>
-                <span>متابعة التسوق</span>
-            </a>
-            <br>
-            <br>
+  <div class="cart">
+    <div class="container">
+      {% for order in orders %}
+        <div class="product">
+          <div class="row">
+            <div class="right col-6">
+              <div class="product-info">
+                <h3>{{ order.product.name }}</h3>
+                <div>سعر الوحدة: {{ order.product.price }}</div>
+                <div>السعر الاجمالي: {{ order.price }}</div>
+                <label for="number" class="form-label">
+                  العدد:
+                </label>
+                <form action="/changeCountInCart/{{ product.id }}" method="POST">
+                  <input class="form-control" type="number" id="number" value="{{ order.count }}">
+                </form>
+                <form action="delete/{{ product.id }}" method="POST">
+                  <input class="btn btn-danger" type="submit" value="حذف">
+                </form>
+              </div>
+            </div>
+            <div class="left col-6">
+              <div class="product-img">
+                <img src="{{ order.product.image.url }}" alt="{{ order.product.name }}" />
+              </div>
+            </div>
+          </div>
         </div>
+      {% endfor %}
+      <br>
+      <h4>المجموع الكلي: 1200 جنية</h4>
+      <br>
+      {% if orders_exist %}
+        <a href="/purchase" class="btn btn-dark">
+          <i class="fa fa-shopping-bag"></i>
+          <span>اتمام عملية الشراء</span>
+        </a>
+      {% else %}
+        <!-- you can write any code here something like "there is no any produts in cart" -->
+      {% endif %}
+      <a href="/products" class="btn btn-dark">
+        <i class="fa fa-shopping-bag"></i>
+        <span>متابعة التسوق</span>
+      </a>
+      <br>
+      <br>
     </div>
+  </div>
 {% endblock %}
