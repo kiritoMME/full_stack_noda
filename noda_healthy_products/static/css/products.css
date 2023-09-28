@@ -1,6 +1,7 @@
 .products {
     padding: 80px 0;
-    background: #f3f3f3;
+    /* background: #f3f3f3; */
+    background: var(--color1);
 }
 
 .products .product {
@@ -66,8 +67,10 @@
 p.more {
     margin: 60px;
     text-align: center;
+    direction: rtl;
 }
 
+/* 
 p.more a {
     color: #000;
     background: #EAE6E3;
@@ -79,4 +82,4 @@ p.more a {
 
 p.more a:hover {
     background: #eeebe9;
-}
+} */

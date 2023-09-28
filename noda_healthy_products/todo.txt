@@ -1,0 +1,5 @@
+TODO
+
+- remove item from cart
+- logout
+- fix signup bec. is not working
