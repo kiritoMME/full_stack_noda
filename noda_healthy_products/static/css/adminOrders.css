@@ -1,0 +1,18 @@
+.all-users-purchased-orders {
+    background: #eee;
+    padding: 80px 0;
+    direction: rtl;
+}
+
+.all-users-purchased-orders .user-orders {
+    background: #fff;
+    border-radius: 15px;
+    padding: 40px;
+}
+
+.all-users-purchased-orders .user-orders .order {
+    border: 1px solid #c7c7c7;
+    border-radius: 10px;
+    padding: 10px 20px;
+    margin: 0 0 20px;
+}
