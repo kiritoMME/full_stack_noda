@@ -127,17 +127,17 @@ def pay(request):
         fav = request.POST.get('fav_payment')
         if fav == 'cash':
             sm = 0
-            cnt = 0
+            # cnt = 0
             user = request.user
             conf = ConfirmedOrder.objects.create(user=user,mobile=user.mobile,address=user.address,city=user.city)
-            for i in Order.objects.filter(user=user):
+            for i in Order.objects.filter(user=user, is_confirmed=False):
                 i.conf_order = conf
                 i.is_confirmed = True
                 sm += i.price * i.count
-                cnt += i.count
+                # cnt += i.count
                 i.save()
             conf.price = sm
-            user.products_in_cart -= cnt
+            user.products_in_cart = 0
             conf.save()
             user.save()
         return redirect('myOrders')
