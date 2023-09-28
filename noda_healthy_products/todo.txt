@@ -2,20 +2,22 @@ TODO
 
 Backend
 
-- make the user login after he added items to cart
+= make the user login after he added items to cart
+= status of the product. pending, shipping or purchased
+= make the page can't proceed to purchase without having the city and phone number entered
+= fix no. of items in the cart showing on the cart icon in navbar
 - fix the error when editing profile info
 - remove item from cart
-- logout
-- fix signup bec. is not working
-- status of the product. pending, shipping or purchased
 - after clicking on "add to cart" it should not be directed to the cart page
-- make the page can't proceed to purchase without having the city and phone number entered
-- fix adminOrders
-- fix no. of items in the cart showing on the cart icon in navbar
 
 Frontend
 
 - add "add to cart" button and "buy now" button to each product in products page
-- replace each link or button with a bootstrap button
+- replace each link or button with a bootstrap button and change login and register pages to bootstrap style
 - add buy now button on the product page
 - the total price in the cart page
+- are you shure you want to logout
+
+Uploading the Website
+
+- still don't know how
