@@ -144,8 +144,10 @@ def pay(request):
     else: return redirect('/purchace')
 
 def myOrders(request):
-    return render(request, 'orders.html', {'all_orders' : Order.objects.filter(user=request.user, is_confirmed=True).order_by('conf_order')})
+    return render(request, 'myOrders.html', {'all_orders' : Order.objects.filter(user=request.user, is_confirmed=True).order_by('conf_order')})
 
+def myOrder(request):
+    return render(request, 'myOrder.html')
 
 # admin views functinos ...
 def adminOrders(request):

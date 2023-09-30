@@ -71,11 +71,24 @@
             {% endif %}
             <br>
             <br>
-            <a class="btn btn-danger" href="/logout">تسجيل خروج</a>
+            <a class="btn btn-danger" id="logoutBtn" href="#">تسجيل خروج</a>
 
         </form>
+
+        <div class="overlay"></div>
+        <div class="confirm-logout">
+            <h5>هل أنت متأكد من أنك تريد تسجيل الخروج؟</h5>
+            <br>
+            <a class="btn btn-primary" id="cancelLogout" href="#">إلغاء</a>
+            <a class="btn btn-danger" href="/logout">تسجيل الخروج</a>
+        </div>
+
     </div>
 
 </div>
 
+{% endblock %}
+
+{% block js %}
+    <script src="{% static 'js/profile.js' %}"></script>
 {% endblock %}

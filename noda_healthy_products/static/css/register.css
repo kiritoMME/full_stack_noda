@@ -1,22 +1,24 @@
-.login {
+.register {
     background: var(--color1);
     padding: 80px 0;
     text-align: center;
 }
 
-.login form {
+form {
     background: #fff;
     padding: 20px;
-    border-radius: 15px;
-    max-width: 300px;
+    border-radius: 10px;
     margin: 0 auto;
+    max-width: 300px;
+    direction: rtl;
 }
 
-.login form input {
+form input,
+form select {
     margin-bottom: 20px;
 }
 
-.login a {
+form a {
     color: #707070;
     text-decoration: none;
     font-size: 15px;
@@ -25,6 +27,10 @@
     transition: all 0.2s ease-in-out;
 }
 
-.login a:hover {
-    text-decoration: underline;    
+form a:hover {
+    text-decoration: underline;
+}
+
+form select {
+    border-radius: 7px;
 }

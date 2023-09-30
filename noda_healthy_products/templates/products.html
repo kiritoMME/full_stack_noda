@@ -14,22 +14,24 @@
 <div class="products">
     <div class="container">
         <h2>منتجاتنا</h2>
-        {% for prod in products %}
-        <a href="/product/{{ prod.id }}">
-            <div class="product">
-                <div class="img-container">
-                    <img src="/media/{{ prod.image }}" alt="" />
+        <div class="row">
+            {% for prod in products %}
+                <div class="col-sm-12 col-md-6 col-lg-4 mb-4 text-center">
+                    <a href="/product/{{ prod.id }}">
+                        <div class="card">
+                            <img class="card-img" src="/media/{{ prod.image }}" alt="" />
+                            <div class="card-body">
+                                <h3 class="card-title">{{ prod.name }}</h3>
+                                <p class="card-text">{{ prod.description }}</p>
+                                <p class="card-text">{{ prod.price }} جنية</p>
+                            </div>
+                        </div>
+                    </a>
                 </div>
-                <div class="product-text">
-                    <h3>{{ prod.name }}</h3>
-                    <p>{{ prod.description }}</p>
-                </div>
-            </div>
-        </a>
-        {% endfor %}
-
-        <div class="clearfix"></div>
-        
+            {% endfor %}
+        </div>
+        <br>
+        <br>
         <p class="more">
             <a class="btn btn-dark" href="/">الرجوع إلي الصفحة الرئيسية</a>
         </p>

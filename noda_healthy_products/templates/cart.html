@@ -13,35 +13,40 @@ Noda Healthy Products
 {% block content %}
   <div class="cart">
     <div class="container">
+      <h2>حقيبة التسوق</h2>
       {% for order in orders %}
-        <div class="product">
-          <div class="row">
-            <div class="right col-6">
-              <div class="product-info">
-                <h3>{{ order.product.name }}</h3>
-                <div>سعر الوحدة: {{ order.product.price }}</div>
-                <div>السعر الاجمالي: {{ order.price }}</div>
+        <div class="card">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img class="img-fluid rounded-end" style="height: 100%;" src="{{ order.product.image.url }}" alt="{{ order.product.name }}" />
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h3 class="card-title">{{ order.product.name }}</h3>
+                <div class="card-text">سعر الوحدة: {{ order.product.price }}</div>
+                <div class="card-text">السعر الاجمالي: <span class="total-price">{{ order.price }}</span></div>
                 <label for="number" class="form-label">
                   العدد:
                 </label>
-                <form action="/changeCountInCart/{{ product.id }}" method="POST">
+                <!-- <form action="/changeCountInCart/{{ product.id }}" method="POST">
                   <input class="form-control" type="number" id="number" value="{{ order.count }}">
-                </form>
+                </form> -->
+                <div class="change-count">
+                  <input type="submit" value="-">
+                  <span>1</span>
+                  <input type="submit" value="+">
+                </div>
+                <br>
                 <form action="delete/{{ product.id }}" method="POST">
                   <input class="btn btn-danger" type="submit" value="حذف">
                 </form>
-              </div>
-            </div>
-            <div class="left col-6">
-              <div class="product-img">
-                <img src="{{ order.product.image.url }}" alt="{{ order.product.name }}" />
               </div>
             </div>
           </div>
         </div>
       {% endfor %}
       <br>
-      <h4>المجموع الكلي: 1200 جنية</h4>
+      <h4>المجموع الكلي: <span class="all-total-price">0</span> جنية</h4>
       <br>
       {% if orders_exist %}
         <a href="/purchase" class="btn btn-dark">
@@ -59,4 +64,8 @@ Noda Healthy Products
       <br>
     </div>
   </div>
+{% endblock %}
+
+{% block js %}
+  <script src="{% static 'js/cart.js' %}"></script>
 {% endblock %}

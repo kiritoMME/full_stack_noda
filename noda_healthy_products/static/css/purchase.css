@@ -1,11 +1,7 @@
-form {
-    direction: rtl;
-    padding: 120px 0 30px 0;
-    height: 100vh;
-    position: relative;
+.purchase {
+    padding: 120px 0 80px;
 }
 
-label {
-    display: inline-block;
-    width: 15vw;
+form {
+    direction: rtl;
 }

@@ -23,17 +23,18 @@
   </head>
   <body>
     <nav class="navbar navbar-expand-lg sticky-top bg-body-tertiary">
-      <div class="container">
+      <div class="container-fluid">
         <a class="navbar-brand" href="/">Noda Healthy Products</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <ul class="navbar-nav mb-2 mb-lg-0">
             <li>
               <a class="nav-link cart-link" href="/cart"> 
                 <i class="fa fa-shopping-bag"></i>
                 <span class="cart-items-no">{{ user.products_in_cart }}</span>
+                <span style="margin-right: -25px;">حقيبة التسوق</span>
               </a>
             </li>
             <li class="nav-item">
@@ -45,6 +46,12 @@
               <a class="nav-link" href="/profile">
                 <i class="fa fa-user"></i>
                 {{ user.first_name }}
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/notifications">
+                <i class="fa fa-bell"></i>
+                الإشعارات
               </a>
             </li>
           </ul>
@@ -107,6 +114,9 @@
     <!-- End Contact -->
 
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
-    <script src="{% static 'js/app.js' %}"></script>
+
+    {% block js %}
+      <script src="{% static 'js/base.js' %}"></script>
+    {% endblock %}
   </body>
 </html>

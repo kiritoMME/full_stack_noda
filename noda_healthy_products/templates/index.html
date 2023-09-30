@@ -45,23 +45,28 @@
 <div class="products">
     <div class="container">
         <h2>منتجاتنا</h2>
-        {% for prod in featured_products %}
-        <a href="product/{{ prod.id }}">
-            <div class="product">
-                <div class="img-container">
-                    <img src="/media/{{ prod.image }}" alt="" />
+        <div class="row">
+            {% for prod in featured_products %}
+                <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                    <a href="product/{{ prod.id }}">
+                        <div class="card text-center">
+                            <img class="card-img" src="/media/{{ prod.image }}" alt="" />
+                            <div class="card-body">
+                                <h3 class="card-title">{{ prod.name }}</h3>
+                                <p class="card-body">{{ prod.description }}</p>
+                                <a class="btn btn-secondary" href="">معرفة المزيد</a>
+                            </div>
+                        </div>
+                    </a>
                 </div>
-                <div class="product-text">
-                    <h3>{{ prod.name }}</h3>
-                    <p>{{ prod.description }}</p>
-                </div>
-            </div>
-        </a>
-        {% endfor %}
-        <div class="clearfix"></div>
+            {% endfor %}
+        </div>
+        
+        <br>
+        <br>
         
         <p class="more">
-        <a class="btn btn-dark" href="/products">مزيد من المنتجات...</a>
+            <a class="btn btn-dark" href="/products">مزيد من المنتجات...</a>
         </p>
 
     </div>

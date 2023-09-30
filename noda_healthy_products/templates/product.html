@@ -20,14 +20,16 @@
                 <p>
                     {{ product.description }}
                 </p>
-                <div>السعر: {{ product.price }}</div>
+                <div>{{ product.price }} جنية</div>
                 <br>
-                <a href="/addToCart/{{ product.id }}/1" class="add-to-cart">
+                <a class="btn btn-secondary" href="/addToCart/{{ product.id }}/1">
                     <i class="fa fa-shopping-bag"></i>
                     <span>أضف إلي حقيبة التسوق</span>
                 </a>
-                <a href="/products" class="add-to-cart">
-                    <span>متابعة التسوق</span>
+                <br>
+                <a class="btn btn-success" href="#">
+                    <i class="fa fa-shopping-bag"></i>
+                    <span>شراء الآن</span>
                 </a>
             </div>
         </div>
@@ -37,6 +39,13 @@
             </div>
         </div>
         <div class="clearfix"></div>
+
+        <br>
+        <p style="text-align: center;">
+            <a class="btn btn-dark" href="/products">
+                <span>متابعة التسوق</span>
+            </a>
+        </p>
     </div>
 </div>
 

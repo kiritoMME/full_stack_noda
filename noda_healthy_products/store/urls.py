@@ -19,6 +19,7 @@ urlpatterns = [
     path('purchase/', views.purchase, name='purchase'),
     path('pay/', views.pay, name='pay'),
     path('myOrders/', views.myOrders, name='myOrders'),
+    path('myOrders/<str:pk>', views.myOrder, name='myOrder'),
 
 
     # admins

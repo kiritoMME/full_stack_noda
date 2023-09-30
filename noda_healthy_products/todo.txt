@@ -1,23 +1,30 @@
-TODO
+   
+   
+   
+                                        T O D O
 
 Backend
 
 = make the user login after he added items to cart
-= status of the product. pending, shipping or purchased
 = make the page can't proceed to purchase without having the city and phone number entered
-= fix no. of items in the cart showing on the cart icon in navbar
-- fix the error when editing profile info
 - remove item from cart
+- fix the error when editing profile info
 - after clicking on "add to cart" it should not be directed to the cart page
+- add "buy now" button to product page
+- increase the number of items in cart icon at the nav, by increasing the number with the counter in the cart page
+- remove the order from nodahealthyproducts.com/myorders after it's shipped
+- status of the product. pending, shipping or purchased
+- date
 
 Frontend
 
-- add "add to cart" button and "buy now" button to each product in products page
-- replace each link or button with a bootstrap button and change login and register pages to bootstrap style
-- add buy now button on the product page
-- the total price in the cart page
-- are you shure you want to logout
+-
 
 Uploading the Website
 
 - still don't know how
+
+Future Developing Ideas
+
+- Ratings of the product
+- ترجيع
