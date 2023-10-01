@@ -15,6 +15,7 @@ Backend
 - remove the order from nodahealthyproducts.com/myorders after it's shipped
 - status of the product. pending, shipping or purchased
 - date
+- purchase page
 
 Frontend
 

@@ -17,67 +17,10 @@
         <form method="POST" action="/pay/">
             {% csrf_token %}
             <h2>عنوان الشحن</h2>
-            <p>
-                <label for="first_name" class="form-label">
-                    الاسم الاول
-                </label>
-                <input class="form-control" id="first_name" name="first_name" disabled type="text" value="{{ user.first_name }}">
-            </p>
-            <p>
-                <label for="last_name" class="form-label">
-                    الاسم الاخير
-                </label>
-                <input class="form-control" id="last_name" name="last_name" disabled type="text" value="{{ user.last_name}}">
-            </p>
-            <p>
-                <label for="phone_no" class="form-label">
-                    رقم الهاتف
-                </label>
-                <input class="form-control" id="phone_no" name="mobile" disabled type="text" value="{{ user.mobile }}">
-            </p>
-            <p>
-                <label for="city" class="form-label">
-                محافظة
-                </label>
-                <select class="form-select" id="city" name="city" disabled name="country">
-                    <option selected value="{{ user.city.id }}">{{user.city.name}}</option>
-                    <!-- 
-                    <option selected="selected">القاهرة</option>
-                    <option>الغربية</option>
-                    <option>الإسكندرية</option>
-                    <option>الإسماعيلية</option>
-                    <option>كفر الشيخ</option>
-                    <option>أسوان</option>
-                    <option>أسيوط</option>
-                    <option>الأقصر</option>
-                    <option>الوادي الجديد</option>
-                    <option>شمال سيناء</option>
-                    <option>البحيرة</option>
-                    <option>بني سويف</option>
-                    <option>بورسعيد</option>
-                    <option>البحر الأحمر</option>
-                    <option>الجيزة</option>
-                    <option>الدقهلية</option>
-                    <option>جنوب سيناء</option>
-                    <option>دمياط</option>
-                    <option>سوهاج</option>
-                    <option>السويس</option>
-                    <option>الشرقية</option>
-                    <option>الغربية</option>
-                    <option>الفيوم</option>
-                    <option>القليوبية</option>
-                    <option>قنا</option>
-                    <option>مطروح</option>
-                    <option>المنوفية</option>
-                    <option>المنيا</option> -->
-                </select>
-            </p>
-            <p>
-                <label for="address" class="form-label">
-                    العنوان بالتفصيل
-                </label>
-                <input class="form-control" id="address" disabled type="text" value="العنوان بالتفصيل">
-            </p>
+            <p>{{ user.first_name }} {{ user.last_name }}</p>
+            <p>{{ user.mobile }}</p>
+            <p>{{ user.city.name }}</p>
+            <p>{{ user.city.address }}</p>
             <a class="btn btn-secondary" href="/editProfile/">تعديل</a>
             <br>
             <br>
@@ -87,11 +30,52 @@
             <label class="form-check-label" for="cashondelivery">الدفع عند الإستلام</label><br>
             <br>
             <br>
-            <p>
-                <input class="btn btn-dark" autofocus type="submit" value="إتمام العملية">
-            </p>
             <h2>السلع والشحن</h2>
-            
+            <div class="card">
+                <h6 style="color: green; padding: 10px;">يتم التوصيل: 10 أكتوبر، 2023</h6>
+                <div class="row">
+                    <div class="col-md-3">
+                        <img class="card-img" src="{% static 'imgs/s1.jpg' %}" alt="">
+                    </div>
+                    <div class="col-md-9">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-6">
+                                    <h5 class="card-title">test 1</h5>
+                                    <div class="card-text"><span style="color: #B6533C; font-weight: bolder;">140 جنيه</span></div>
+                                    <label for="number" class="form-label">
+                                    العدد:
+                                    </label>
+                                    <div style="display: inline-block;" class="change-count">
+                                        <input type="submit" value="-">
+                                        <span>1</span>
+                                        <input type="submit" value="+">
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <h5 class="card-title">مصاريف الشحن</h5>
+                                    <div class="card-text">30 جنيه</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-2">
+                            <p>
+                                <input class="btn btn-success" autofocus type="submit" value="تأكيد طلبك">
+                            </p>
+                        </div>
+                        <div class="col-10"> 
+                            <h5 style="color: #B6533C; font-weight: bolder;">إجمالي المبلغ: 170 جنيه</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </form>
     </div>
 </div>

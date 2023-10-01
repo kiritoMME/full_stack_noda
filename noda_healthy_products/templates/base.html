@@ -31,10 +31,13 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mb-2 mb-lg-0">
             <li>
-              <a class="nav-link cart-link" href="/cart"> 
+              <a class="nav-link position-relative" href="/cart">
                 <i class="fa fa-shopping-bag"></i>
-                <span class="cart-items-no">{{ user.products_in_cart }}</span>
-                <span style="margin-right: -25px;">حقيبة التسوق</span>
+                حقيبة التسوق
+                <span class="position-absolute start-100 translate-middle badge rounded-pill bg-danger">
+                  {{ user.products_in_cart }}
+                  <span class="visually-hidden">unread messages</span>
+                </span>
               </a>
             </li>
             <li class="nav-item">

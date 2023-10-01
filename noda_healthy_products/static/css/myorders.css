@@ -1,0 +1,65 @@
+.myorders {
+    background: #eee;
+    padding: 120px 0 80px;
+    direction: rtl;
+}
+
+.myorders .card a {
+    color: #000;
+    text-decoration: none;
+}
+
+div.shipped,
+div.shipping {
+    display: none;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px 0 10px 10px;
+}
+
+div.shipped.show,
+div.shipping.show {
+    display: block;
+}
+
+h5 {
+    margin: 0;
+}
+
+button.shipped,
+button.shipping {
+    font-weight: 900;
+    border-radius: 10px 10px 0 0;
+}
+
+button.shipped.show,
+button.shipping.show {
+    background: #fff;
+}
+
+.btn-check:checked+.btn,
+.btn.active,
+.btn.show,
+.btn:first-child:active,
+:not(.btn-check)+.btn:active {
+    border: 0;
+}
+
+.card {
+    max-width: 540px;
+}
+
+.card img {
+    width: 100%;
+}
+    
+.card .row .col-8,
+.card .row .col-4 {
+    display: flex;
+    align-items: center;
+}
+
+.card .card-text.form-control {
+    width: fit-content;
+    display: inline-block;
+}
