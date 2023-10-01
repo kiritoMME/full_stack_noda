@@ -87,6 +87,29 @@ def addToCart(request, productid, count):
     user.save()
     return redirect('/cart')
 
+def changeCount(request, from_url, ope, id):
+    order = Order.objects.get(id=id)
+    if ope == 'add': 
+        order.count+=1
+        order.price += order.product.price
+        request.user.products_in_cart +=1
+    elif ope == 'minus':
+        order.count-=1
+        order.price-=order.product.price
+        request.user.products_in_cart -=1
+        if order.count == 0:
+            order.delete()
+            request.user.save()
+            return redirect(f'/{from_url}')
+    else:
+        request.user.products_in_cart -= order.count
+        order.delete()
+        request.user.save()
+        return redirect(f'/{from_url}')
+    request.user.save()
+    order.save()
+    return redirect(f'/{from_url}')
+
 def cart(request):
     orders = Order.objects.filter(user= request.user, is_confirmed=False)
     return render(request, 'cart.html', {"orders": orders, 'orders_exist' : len(orders) > 0 })
@@ -117,7 +140,8 @@ def purchase(request):
     if request.user.products_in_cart < 1: 
         messages.error(request, "لا يوجد اي منتجات فى السله")
         return redirect('/')
-    return render(request, 'purchase.html')
+    orders = Order.objects.filter(user= request.user, is_confirmed=False)
+    return render(request, 'purchase.html', {'orders' : orders})
 
 def pay(request):
     if request.user.products_in_cart < 1: 

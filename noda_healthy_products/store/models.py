@@ -34,5 +34,5 @@ class Order(models.Model):
     price = models.FloatField()
     is_confirmed = models.BooleanField(default=False)
     def __str__(self):
-        return f"-{self.user.id}- {self.user} ==> {self.count}  {self.product.name}"
+        return f"-{self.id}- {self.user} ==> {self.count}  {self.product.name}"
 

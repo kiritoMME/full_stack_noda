@@ -20,7 +20,7 @@ urlpatterns = [
     path('pay/', views.pay, name='pay'),
     path('myOrders/', views.myOrders, name='myOrders'),
     path('myOrders/<str:pk>', views.myOrder, name='myOrder'),
-
+    path('<str:from_url>/changeCount/<str:ope>/<int:id>', views.changeCount, name='changeCount'),
 
     # admins
     path('adminOrders/', views.adminOrders, name='adminOrders'),

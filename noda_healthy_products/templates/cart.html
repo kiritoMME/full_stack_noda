@@ -32,14 +32,14 @@ Noda Healthy Products
                   <input class="form-control" type="number" id="number" value="{{ order.count }}">
                 </form> -->
                 <div class="change-count">
-                  <input type="submit" value="-">
-                  <span>1</span>
-                  <input type="submit" value="+">
+                  <a href="changeCount/minus/{{ order.id }}"><input type="button" value="-" ></a>
+                  <span>{{order.count}}</span>
+                  <a href="changeCount/add/{{ order.id }}"><input type="button" value="+"></a>
                 </div>
                 <br>
-                <form action="delete/{{ product.id }}" method="POST">
-                  <input class="btn btn-danger" type="submit" value="حذف">
-                </form>
+                <a href="changeCount/delete/{{ order.id }}">
+                  <input class="btn btn-danger" type="button" value="حذف">
+                </a>
               </div>
             </div>
           </div>

@@ -18,7 +18,7 @@
         {% for order in all_orders %}
         <div class="card">
             <!-- <a href="/myOrders/{{ order.product.number }}"> -->
-            <a href="/myOrders/1">
+            <a href="/myOrders/{{ order.id }}">
               <div class="row g-0">
                 <div class="col-md-4">
                   <img class="img-fluid rounded-end" src="{{ order.product.image.url }}" alt="'{{ order.product.name }}' un found img" width="100px">
