@@ -6,6 +6,10 @@
     align-items: center;
 }
 
+.profile * {
+    direction: rtl;
+}
+
 .overlay {
     display: none;
     background: #000;
