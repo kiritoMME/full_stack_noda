@@ -23,8 +23,9 @@ urlpatterns = [
     path('myOrders/', views.myOrders, name='myOrders'),
     path('myOrders/<str:pk>', views.myOrder, name='myOrder'),
     path('<str:from_url>/changeCount/<str:ope>/<int:id>', views.changeCount, name='changeCount'),
-
+    
     # admins
-    path('adminOrders/', views.adminOrders, name='adminOrders'),
+    path('adminOrders/<str:showed>', views.adminOrders, name='adminOrders'),
+    path('changeConfOrderStat/<str:to_url>/<str:stat>/<int:id>', views.changeConfOrderStat, name='changeConfOrderStat'),
     path('adminConfOrderDetails/<str:id>/', views.adminConfOrderDetails, name='adminConfOrderDetails'),
 ]

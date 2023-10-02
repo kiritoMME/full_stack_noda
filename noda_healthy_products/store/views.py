@@ -188,7 +188,7 @@ def myOrder(request):
     return render(request, 'myOrder.html')
 
 # admin views functinos ...
-def adminOrders(request):
+def adminOrders(request, showed):
     if request.user.is_superuser:
         d = dict()
         for i in ConfirmedOrder.objects.all():
@@ -199,8 +199,31 @@ def adminOrders(request):
             if i not in list(d[i.user].keys()):
                 d[i.user][i] = list()
             d[i.user][i] = Order.objects.filter(conf_order=i)
-        return render(request, 'adminOrders.html', {"all_orders": d})
+        pend = dict()
+        ship = dict()
+        deliver = dict()
+        for key in d.keys():
+            for val in d[key].keys():
+                if val.status == 'pending':
+                    if key not in pend.keys(): pend[key] = dict()
+                    pend[key][val] = d[key][val]
+                elif val.status == 'shipping':
+                    if key not in ship.keys(): ship[key] = dict()
+                    ship[key][val] = d[key][val]
+                elif val.status == 'delivered':
+                    if key not in deliver.keys(): deliver[key] = dict()
+                    deliver[key][val] = d[key][val]
+                    
+        return render(request, 'adminOrders.html', {"delivered": deliver, "pending": pend, "shipping" : ship, "showed": showed})
     else: return redirect('/')
+
+def changeConfOrderStat(request, to_url, stat, id):
+    if not request.user.is_superuser: return redirect('/')
+    conf_order = ConfirmedOrder.objects.get(id=id)
+    conf_order.status = stat
+    conf_order.save()
+    return redirect(f'/adminOrders/{to_url}')
+
 
 def adminConfOrderDetails(request, id):
     if request.user.is_superuser:

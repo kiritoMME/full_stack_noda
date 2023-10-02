@@ -12,8 +12,9 @@
       <button class="btn pending show">معلّق</button>
       <button class="btn shipping">جار التوصيل</button>
       <button class="btn shipped">تم التوصيل</button>
+      <input type="" value="{{ showed }}"> <!-- <<<<<<<<<<<<<<<<<============ make it hidden============>>>> -->
       <div class="pending show">
-        {% for user, conf_orders in all_orders.items %}
+        {% for user, conf_orders in pending.items %}
           <h1>{{ user }}</h1>
           <div class="user-orders">
             {% for conf_order, orders in conf_orders.items %}
@@ -27,28 +28,75 @@
                     <p>السعر الكلي:   {{ order.price }}            </p>
                   </div>
                 {% endfor %}
-                <button class="btn btn-dark">
+                {% comment %} <button class="btn btn-dark">
                   اضافة إلي جاري التوصيل
-                </button>
+                </button> {% endcomment %}
               </a>
+              <a href="/changeConfOrderStat/pending/shipping/{{ conf_order.id }}"><input class="btn btn-dark" value="اضافة إلي جاري التوصيل"></a>
             {% endfor %}
           </div>
         {% endfor %}
       </div>
       <div class="shipping">
-        جار التوصيل
+        {% for user, conf_orders in shipping.items %}
+          <h1>{{ user }}</h1>
+          <div class="user-orders">
+            {% for conf_order, orders in conf_orders.items %}
+              <a class="conf" href="/adminConfOrderDetails/{{ conf_order.id }}">
+                <h2>{{ conf_order.status }}</h2>
+                {% for order in orders %}
+                  <div class="order">
+                    <p>اسم المنتج:    {{ order.product }}         </p>
+                    <p>العدد:         {{ order.count }}           </p>
+                    <p>سعر الوحدة:    {{ order.product.price }}   </p>
+                    <p>السعر الكلي:   {{ order.price }}            </p>
+                  </div>
+                {% endfor %}
+                {% comment %} <button class="btn btn-dark">
+                  اضافة إلي جاري التوصيل
+                </button> {% endcomment %}
+              </a>
+              <a href="/changeConfOrderStat/shipping/delivered/{{ conf_order.id }}"><input class="btn btn-dark" value="إضافة إلي تم التوصيل"></a>
+              <a href="/changeConfOrderStat/shipping/pending/{{ conf_order.id }}"><input class="btn btn-dark" value="إرجاع إلي معلّق"></a>
+            {% endfor %}
+          </div>
+        {% endfor %}
+        {% comment %} جار التوصيل
         <button class="btn btn-dark">
           إضافة إلي تم التوصيل
         </button>
         <button class="btn btn-dark">
           إرجاع إلي معلّق
-        </button>
+        </button> {% endcomment %}
       </div>
       <div class="shipped">
-        تم التوصيل
+        {% for user, conf_orders in delivered.items %}
+          <h1>{{ user }}</h1>
+          <div class="user-orders">
+            {% for conf_order, orders in conf_orders.items %}
+              <a class="conf" href="/adminConfOrderDetails/{{ conf_order.id }}">
+                <h2>{{ conf_order.status }}</h2>
+                {% for order in orders %}
+                  <div class="order">
+                    <p>اسم المنتج:    {{ order.product }}         </p>
+                    <p>العدد:         {{ order.count }}           </p>
+                    <p>سعر الوحدة:    {{ order.product.price }}   </p>
+                    <p>السعر الكلي:   {{ order.price }}            </p>
+                  </div>
+                {% endfor %}
+                {% comment %} <button class="btn btn-dark">
+                  اضافة إلي جاري التوصيل
+                </button> {% endcomment %}
+              </a>
+              <a href="/changeConfOrderStat/shipped/shipping/{{ conf_order.id }}"><input class="btn btn-dark" value="إرجاع إلي جار التوصيل"></a>
+              <a href="/changeConfOrderStat/shipped/pending/{{ conf_order.id }}"><input class="btn btn-dark" value="إرجاع إلي معلّق"></a>
+            {% endfor %}
+          </div>
+        {% endfor %}
+        {% comment %} تم التوصيل
         <button class="btn btn-dark">
           إرجاع إلي تم جار التوصيل
-        </button>
+        </button> {% endcomment %}
       </div>
     </div>
   </div>
