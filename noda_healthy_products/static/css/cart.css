@@ -6,6 +6,10 @@
     display: flex;
     align-items: center;
 }
+
+.cart a {
+    text-decoration: none;
+}
  
 .cart .card {
     margin: 20px 0;
