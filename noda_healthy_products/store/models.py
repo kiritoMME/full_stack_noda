@@ -1,5 +1,6 @@
 from django.db import models
 from User.models import User, City
+from datetime import datetime
 # Create your models here.
 
 class Tag(models.Model):
@@ -23,6 +24,7 @@ class ConfirmedOrder(models.Model):
     mobile = models.CharField(max_length=50)
     address = models.CharField(max_length=100000)
     city = models.ForeignKey(City, on_delete=models.CASCADE, blank=True, null=True)
+    date_time = models.DateTimeField(default=datetime.now)
 
     status = models.CharField(choices=(('pending', 'pending'),('shipping', 'shipping'), ('delivered', 'delivered')) ,default='pending', max_length=1000)
 
