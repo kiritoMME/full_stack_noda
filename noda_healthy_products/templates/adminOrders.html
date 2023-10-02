@@ -27,6 +27,9 @@
                     <p>السعر الكلي:   {{ order.price }}            </p>
                   </div>
                 {% endfor %}
+                <button class="btn btn-dark">
+                  اضافة إلي جاري التوصيل
+                </button>
               </a>
             {% endfor %}
           </div>
@@ -34,9 +37,18 @@
       </div>
       <div class="shipping">
         جار التوصيل
+        <button class="btn btn-dark">
+          إضافة إلي تم التوصيل
+        </button>
+        <button class="btn btn-dark">
+          إرجاع إلي معلّق
+        </button>
       </div>
       <div class="shipped">
         تم التوصيل
+        <button class="btn btn-dark">
+          إرجاع إلي تم جار التوصيل
+        </button>
       </div>
     </div>
   </div>
