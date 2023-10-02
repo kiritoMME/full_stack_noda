@@ -15,7 +15,8 @@
       <button class="btn shipping show">جار التوصيل</button>
       <button class="btn shipped">تم التوصيل</button>
       <div class="shipping show">
-        {% for order in all_orders %}
+        {% if not_delivered_not_exist %}<h5>لا يوجد شيء.</h5> {% endif %}
+        {% for order in not_delivered_orders %}
         <div class="card">
             <!-- <a href="/myOrders/{{ order.product.number }}"> -->
             <a href="/myOrders/{{ order.id }}">
@@ -46,9 +47,38 @@
         {% endfor %}
       </div>
       <div class="shipped">
-        <h5>لا يوجد شيء.</h5>
+        {% if delivered_not_exist %}<h5>لا يوجد شيء.</h5> {% endif %}
+        {% for order in delivered_orders %}
+          <div class="card">
+            <!-- <a href="/myOrders/{{ order.product.number }}"> -->
+            <a href="/myOrders/{{ order.id }}">
+              <div class="row g-0">
+                <div class="col-md-4">
+                  <img class="img-fluid rounded-end" src="{{ order.product.image.url }}" alt="'{{ order.product.name }}' un found img" width="100px">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title">{{ order.product.name }}</h5>
+                    <p class="card-text">
+                      العدد:
+                      {{ order.count }}
+                    </p>
+                    <p class="card-text">
+                      السعر:
+                      {{ order.price }}
+                    </p>
+                    <p class="card-text">
+                      التاريخ :
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <br>
+        {% endfor %}
       </div>
-
+        
     </div>
   </div>
 {% endblock %}

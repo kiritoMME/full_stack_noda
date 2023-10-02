@@ -24,7 +24,7 @@ class ConfirmedOrder(models.Model):
     address = models.CharField(max_length=100000)
     city = models.ForeignKey(City, on_delete=models.CASCADE, blank=True, null=True)
 
-    status = models.CharField(choices=(('confirmed' , 'confirmed'),('pending', 'pending'),('shipping', 'shipping'), ('delivered', 'delivered')) ,default='confirmed', max_length=1000)
+    status = models.CharField(choices=(('pending', 'pending'),('shipping', 'shipping'), ('delivered', 'delivered')) ,default='pending', max_length=1000)
 
 class Order(models.Model):
     user = models.ForeignKey(User, on_delete = models.CASCADE)

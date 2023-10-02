@@ -45,12 +45,29 @@
                 مشترياتي
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/profile">
-                <i class="fa fa-user"></i>
-                {{ user.first_name }}
-              </a>
-            </li>
+            {% if user.is_authenticated %}
+              <li class="nav-item">
+                <a class="nav-link" href="/profile">
+                  <i class="fa fa-user"></i>
+                  {{ user.first_name }}
+                </a>
+              </li>
+            {% else %}
+              <li class="nav-item">
+                <a class="nav-link" href="/login" >
+                  {% comment %} <i class="fa fa-user"></i> {% endcomment %}
+                  sing in
+                </a>
+              </li>
+            {% endif %}
+            {% if user.is_superuser %}
+              <li class="nav-item">
+                <a class="nav-link" href="/adminOrders">
+                  <!-- <i class="fa fa-bell"></i> -->
+                  لوحة التحكم
+                </a>
+              </li>
+            {% endif %}
             <li class="nav-item">
               <a class="nav-link" href="/notifications">
                 <i class="fa fa-bell"></i>

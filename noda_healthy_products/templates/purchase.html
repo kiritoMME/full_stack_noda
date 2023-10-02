@@ -67,9 +67,17 @@ Purchase
           <div class="card-body">
             <div class="row">
               <div class="col-2">
-                <p>
-                  <input class="btn btn-success" autofocus type="submit" value="تأكيد طلبك">
-                </p>
+                {% if user.is_verified %}
+                  <p>
+                    <input class="btn btn-success" autofocus type="submit" value="تأكيد طلبك">
+                  </p>
+                {% else %}
+                  <a href="/sendVerifyPage">
+                    <p>
+                      <input class="btn btn-success" autofocus type="button" value="تاكيد رقم هاتفك">
+                    </p>
+                  </a>
+                {% endif %}
               </div>
               <div class="col-10">
                 <h5 style="color: #B6533C; font-weight: bolder;">إجمالي المبلغ: 170 جنيه</h5>

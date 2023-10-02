@@ -3,6 +3,7 @@ from django.contrib.auth.models import auth
 from django.contrib.auth import logout
 from django.shortcuts import render,redirect
 from django.contrib import messages
+from django.db.models import Q
 from .forms import UserCreationForm, VerifyForm, LoginForm
 from .models import Product, Tag, Order, ConfirmedOrder
 from . import verify
@@ -14,8 +15,6 @@ from .decorators import verification_required
 def base(request):
     return render(request, 'base.html')
 
-@login_required
-@verification_required
 def index(request):
     return render(request, 'index.html', {"featured_products": Product.objects.filter(in_the_main_page = True)})
 
@@ -25,11 +24,12 @@ def registerPage(request):
         print('hello1')
         if form.is_valid():
             user = form.save()
-            print(user.id)
+            # print(user.id)
             auth.login(request, user)
-            print('hello2')
-            verify.send(form.cleaned_data.get('mobile'))
-            return redirect('/verify')
+            # print('hello2')
+            # verify.send(form.cleaned_data.get('mobile'))
+            # return redirect('/verify')
+            return redirect('/')
     else:
         form = UserCreationForm()
     return render(request, 'register.html', {'form': form, "cities": City.objects.all()})
@@ -52,6 +52,14 @@ def logout_view(request):
     logout(request)
     return render(request, 'logout.html')
 
+def sendVerifyPage(request):
+    return render(request, "sendVerifyPage.html")
+
+def sendVerify(request):
+    mobile = request.user.mobile
+    verify.send(mobile)
+    return redirect('/verify')
+
 @login_required
 def verify_code(request):
     if request.method == 'POST':
@@ -72,7 +80,9 @@ def product(request, pk):
 def products(request):
     return render(request, 'products.html', {'products' : Product.objects.all()})
 
-def addToCart(request, productid, count):
+@login_required
+@verification_required
+def addToCart(request, to_url, productid, count):
     user = request.user
     product = Product.objects.get(id = productid)
     count = int(count)
@@ -85,7 +95,7 @@ def addToCart(request, productid, count):
     order.save()
     user.products_in_cart += int(count)
     user.save()
-    return redirect('/cart')
+    return redirect(f'/{to_url}')
 
 def changeCount(request, from_url, ope, id):
     order = Order.objects.get(id=id)
@@ -130,9 +140,6 @@ def changeProfile(request):
     if user.mobile != nwMobile:
         user.is_verified = False
         user.mobile = nwMobile
-        prvSite = request.META.get('HTTP_REFERER')
-        user.save()
-        if prvSite != None: return redirect(prvSite)
     user.save()
     return redirect('/profile')
 
@@ -168,7 +175,14 @@ def pay(request):
     else: return redirect('/purchace')
 
 def myOrders(request):
-    return render(request, 'myOrders.html', {'all_orders' : Order.objects.filter(user=request.user, is_confirmed=True).order_by('conf_order')})
+    delivered_orders = Order.objects.filter(user=request.user, is_confirmed=True, conf_order__status="delivered").order_by('conf_order')
+    not_delivered_orders = Order.objects.filter(Q(user=request.user), Q(is_confirmed=True),Q(conf_order__status="pending") | Q(conf_order__status="shipping")).order_by('conf_order')
+    return render(request, 'myOrders.html', {
+        'delivered_orders' : delivered_orders,
+        'delivered_not_exist' : not delivered_orders.exists(),
+        'not_delivered_orders' : not_delivered_orders,
+        'not_delivered_not_exist' : not not_delivered_orders.exists()
+    })
 
 def myOrder(request):
     return render(request, 'myOrder.html')

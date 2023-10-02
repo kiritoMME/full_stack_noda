@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Verify your account</h1>
+    your number: {{ user.mobile }}
+    <a href="/sendVerify">
+        <input type="button" value="send confirmation message" autofocus>
+    </a>
+{% endblock %}

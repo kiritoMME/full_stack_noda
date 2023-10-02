@@ -1,52 +1,53 @@
-{% extends 'base.html' %}
-
-{% load static %}
+{% extends 'base.html' %} {% load static %}
 
 {% block style %}
-    <link rel="stylesheet" href="{% static 'css/product.css'%}" />
+<link rel="stylesheet" href="{% static 'css/product.css'%}" />
 {% endblock %}
 
-{% block title %}
-    Noda Healthy Products
-{% endblock %}
+{% block title %} Noda Healthy Products {% endblock %}
 
 {% block content %}
 
 <div class="product">
-    <div class="container">
-        <div class="left">
-            <div class="product-info">
-                <h3>{{ product.name }}</h3>
-                <p>
-                    {{ product.description }}
-                </p>
-                <div>{{ product.price }} جنية</div>
-                <br>
-                <a class="btn btn-secondary" href="/addToCart/{{ product.id }}/1">
-                    <i class="fa fa-shopping-bag"></i>
-                    <span>أضف إلي حقيبة التسوق</span>
-                </a>
-                <br>
-                <a class="btn btn-success" href="#">
-                    <i class="fa fa-shopping-bag"></i>
-                    <span>شراء الآن</span>
-                </a>
-            </div>
-        </div>
-        <div class="right">
-            <div class="product-img">
-                <img src="{{ product.image.url }}" alt="{{ product.name }}" />
-            </div>
-        </div>
-        <div class="clearfix"></div>
-
-        <br>
-        <p style="text-align: center;">
-            <a class="btn btn-dark" href="/products">
-                <span>متابعة التسوق</span>
-            </a>
-        </p>
+  <div class="container">
+    <div class="left">
+      <div class="product-info">
+        <h3>{{ product.name }}</h3>
+        <p>{{ product.description }}</p>
+        <div>{{ product.price }} جنية</div>
+        <br />
+        {% if user.is_authenticated %}
+          <a class="btn btn-secondary" href="/addToCart/cart/{{ product.id }}/1">
+            <i class="fa fa-shopping-bag"></i>
+            <span>أضف إلي حقيبة التسوق</span>
+          </a>
+          <br />
+          <a class="btn btn-success" href="/addToCart/purchase/{{ product.id }}/1">
+            <i class="fa fa-shopping-bag"></i>
+            <span>شراء الآن</span>
+          </a>
+        {% else %}
+          <a class="btn btn-secondary" href="/login">
+            <i class="fa fa-shopping-bag"></i>
+            <span>قم بتسجيل الدخول لتتمكن من الشراء</span>
+          </a>
+        {% endif %}
+      </div>
     </div>
+    <div class="right">
+      <div class="product-img">
+        <img src="{{ product.image.url }}" alt="{{ product.name }}" />
+      </div>
+    </div>
+    <div class="clearfix"></div>
+
+    <br />
+    <p style="text-align: center">
+      <a class="btn btn-dark" href="/products">
+        <span>متابعة التسوق</span>
+      </a>
+    </p>
+  </div>
 </div>
 
 {% endblock %}

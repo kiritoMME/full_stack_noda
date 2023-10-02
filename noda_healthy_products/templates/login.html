@@ -13,7 +13,7 @@
         <br>
         <form action="/login/" method="POST">
             {% csrf_token %}
-            <input class="form-control" name="mobile" type="text" placeholder="رقم الهاتف">
+            <input class="form-control" name="mobile" type="text" placeholder="رقم الهاتف" autofocus>
             <input class="form-control" name="password" type="password" placeholder="كلمة السر">
             <input class="btn btn-dark" type="submit" value="تسجيل الدخول">
             <div class="links">
