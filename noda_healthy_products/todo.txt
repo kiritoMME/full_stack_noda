@@ -2,7 +2,6 @@
 
 Backend
 
-- fix the error when editing profile info
 - make the page can't proceed to purchase without having the city and phone number entered
 - remove the order from nodahealthyproducts.com/myorders after it's shipped
 - status of the product. pending, shipping or purchased
