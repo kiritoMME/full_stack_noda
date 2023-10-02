@@ -16,7 +16,7 @@
 
     <div class="container">
 
-        <form method="POST" action="/changeProfile/">
+        <form method="POST" action="/changeProfile/{{ to_url }}">
             {% csrf_token %}
 
             <p>
@@ -94,7 +94,7 @@
                 <input class="btn btn-dark" type="submit" value="اتمام">
             {% endif %}
             {% if noedit %}
-                <a class="btn btn-dark" href="{% url 'editProfile' %}">
+                <a class="btn btn-dark" href="/editProfile/profile">
                     تعديل
                 </a>
             {% endif %}

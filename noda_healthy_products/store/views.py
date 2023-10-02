@@ -127,10 +127,10 @@ def cart(request):
 def profile(request):
     return render(request, 'profile.html',{"noedit": True, "city": request.user.city })
 
-def editProfile(request):
-    return render(request, 'profile.html',{"noedit":False, "cities": City.objects.all() })
+def editProfile(request, to_url):
+    return render(request, 'profile.html',{"noedit":False, "cities": City.objects.all(),'to_url': to_url })
 
-def changeProfile(request):
+def changeProfile(request, to_url):
     user = request.user
     user.first_name = request.POST.get('first_name')
     user.last_name = request.POST.get("last_name")
@@ -141,7 +141,7 @@ def changeProfile(request):
         user.is_verified = False
         user.mobile = nwMobile
     user.save()
-    return redirect('/profile')
+    return redirect(f'/{to_url}')
 
 def purchase(request):
     if request.user.products_in_cart < 1: 
