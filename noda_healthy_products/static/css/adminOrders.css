@@ -16,3 +16,39 @@
     padding: 10px 20px;
     margin: 0 0 20px;
 }
+
+div.pending,
+div.shipped,
+div.shipping {
+    display: none;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px 0 10px 10px;
+}
+
+div.pending.show,
+div.shipped.show,
+div.shipping.show {
+    display: block;
+}
+
+button.pending,
+button.shipped,
+button.shipping {
+    font-weight: 900;
+    border-radius: 10px 10px 0 0;
+}
+
+button.pending.show,
+button.shipped.show,
+button.shipping.show {
+    background: #fff;
+}
+
+.btn-check:checked+.btn,
+.btn.active,
+.btn.show,
+.btn:first-child:active,
+:not(.btn-check)+.btn:active {
+    border: 0;
+}
