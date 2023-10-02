@@ -2,20 +2,14 @@
 
 Backend
 
-= make the user login after he added items to cart
 - make the page can't proceed to purchase without having the city and phone number entered
-- remove item from cart
-- fix the error when editing profile info
-- add "buy now" button to product page
-- increase the number of items in cart icon at the nav, by increasing the number with the counter in the cart page
 - remove the order from nodahealthyproducts.com/myorders after it's shipped
 - status of the product. pending, shipping or purchased
 - date
-- purchase page
 
 Frontend
 
--
+- إجمالي المبلغ in purchase page
 
 Uploading the Website
 

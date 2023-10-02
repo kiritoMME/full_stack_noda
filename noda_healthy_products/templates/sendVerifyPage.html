@@ -1,12 +1,26 @@
 {% extends 'base.html' %}
 
+{% block style %}
+    <style>
+        .send-verification {
+            padding: 120px 0 80px;
+        }
+    </style>
+{% endblock %}
+
 {% block content %}
-    <h1>Verify your account</h1>
-    your number: {{ user.mobile }}
-    <a href="/sendVerify">
-        <input type="button" value="send confirmation message" autofocus>
-    </a>
-    <a href="/editProfile/sendVerifyPage">
-        <input type="button" value="change the number" autofocus>
-    </a>
+    <div class="send-verification">
+        <div class="container">
+            <h1>Verify your account</h1>
+            your number: {{ user.mobile }}
+            <br>
+            <br>
+            <a href="/sendVerify">
+                <input class="btn btn-dark"  type="button" value="send confirmation message" autofocus>
+            </a>
+            <a href="/editProfile/sendVerifyPage">
+                <input type="button" value="change the number" autofocus>
+            </a>
+        </div>
+    </div>
 {% endblock %}

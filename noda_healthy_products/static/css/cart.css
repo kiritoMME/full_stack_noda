@@ -1,10 +1,14 @@
 .cart {
     background: #eee;
-    padding: 80px 0;
+    padding: 120px 0 80px;
     direction: rtl;
     min-height: 90vh;
     display: flex;
     align-items: center;
+}
+
+.cart a {
+    text-decoration: none;
 }
  
 .cart .card {
