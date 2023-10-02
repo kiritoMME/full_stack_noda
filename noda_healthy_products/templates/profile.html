@@ -15,8 +15,10 @@
 <div class="profile">
 
     <div class="container">
+       
+        <h2>الملف الشخصي</h2>
 
-        <form method="POST" action="/changeProfile/{{ to_url }}">
+        <!-- <form method="POST" action="/changeProfile/{{ to_url }}">
             {% csrf_token %}
 
             <p>
@@ -44,7 +46,7 @@
                 <label for="city" class="form-label">
                     محافظة
                 </label>
-                <select class="form-select" id="city" name="city" {% if noedit %} disabled {% endif %} id="country" name="country">
+                <select class="form-select" id="city" name="city" {% if noedit %} disabled {% endif %} id="country">
                     {% if noedit %}
                         <option selected value="{{ city.id }}">{{city.name}}</option>
                     {% endif %}
@@ -52,35 +54,6 @@
                     {% for city in cities %}
                         <option {% if user.city == city.name %} selected {% endif %} value="{{ city.id }}">{{city.name}}</option>
                     {% endfor %}
-                                        <!-- 
-                    <option selected="selected">القاهرة</option>
-                    <option>الغربية</option>
-                    <option>الإسكندرية</option>
-                    <option>الإسماعيلية</option>
-                    <option>كفر الشيخ</option>
-                    <option>أسوان</option>
-                    <option>أسيوط</option>
-                    <option>الأقصر</option>
-                    <option>الوادي الجديد</option>
-                    <option>شمال سيناء</option>
-                    <option>البحيرة</option>
-                    <option>بني سويف</option>
-                    <option>بورسعيد</option>
-                    <option>البحر الأحمر</option>
-                    <option>الجيزة</option>
-                    <option>الدقهلية</option>
-                    <option>جنوب سيناء</option>
-                    <option>دمياط</option>
-                    <option>سوهاج</option>
-                    <option>السويس</option>
-                    <option>الشرقية</option>
-                    <option>الغربية</option>
-                    <option>الفيوم</option>
-                    <option>القليوبية</option>
-                    <option>قنا</option>
-                    <option>مطروح</option>
-                    <option>المنوفية</option>
-                    <option>المنيا</option> -->
                 </select>
             </p>
             
@@ -102,7 +75,74 @@
             <br>
             <a class="btn btn-danger" id="logoutBtn" href="#">تسجيل خروج</a>
 
+        </form> -->
+
+        <form class="row g-3 needs-validation" method="POST" action="/changeProfile/{{ to_url }}" novalidate>
+            {% csrf_token %}
+            <div class="col-md-4">
+                <label for="validationCustom01" class="form-label">الاسم الاول</label>
+                <input class="form-control" id="validationCustom01" name="first_name" {% if noedit %} disabled {% endif %} type="text" value="{{ user.first_name }}" required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+            <div class="col-md-4">
+                <label for="validationCustom02" class="form-label">الاسم الاخير</label>
+                <input class="form-control" id="validationCustom02" name="last_name" {% if noedit %} disabled {% endif %} type="text" value="{{ user.last_name}}" required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+            <div class="col-md-4">
+                <label for="validationCustomPhone" class="form-label">رقم الهاتف</label>
+                <div class="input-group has-validation" style="direction: ltr;">
+                    <span class="input-group-text" id="inputGroupPrepend">+20</span>
+                    <input pattern="^010.*|^011.*|^015.*|^012.*" type="tel" class="form-control" name="mobile" {% if noedit %} disabled {% endif %} value="{{ user.mobile }}" minlength="11" maxlength="11" id="validationCustomPhone" aria-describedby="inputGroupPrepend" required>
+                    <div class="invalid-feedback">
+                        <ul>
+                            <li>الرقم يجب أن يبدأ ب010 أو 011 أو 015 أو 012</li>
+                            <li>الرقم يجب ألا يتجاوز 11 رقم</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <label for="validationCustom04" class="form-label">منطقة</label>
+                <select class="form-select" name="city" {% if noedit %} disabled {% endif %} id="validationCustom04" required>
+                    {% if noedit %}
+                        <option selected value="{{ city.id }}">{{city.name}}</option>
+                    {% endif %}
+                    
+                    {% for city in cities %}
+                        <option {% if user.city == city.name %} selected {% endif %} value="{{ city.id }}">{{city.name}}</option>
+                    {% endfor %}
+                </select>
+                <div class="invalid-feedback">
+                    من فضلك إختر منطقة
+                </div>
+            </div>
+            <div class="col-md-8">
+                <label for="validationCustom03" class="form-label">العنوان بالتفصيل</label>
+                <input type="text" class="form-control" name="address" {% if noedit %} disabled {% endif %} value="{{ user.address }} id="validationCustom03" required>
+                <div class="invalid-feedback">
+                    من فضلك أكتب عنوانك
+                </div>
+            </div>
+            <div class="col-12">
+                {% if not noedit %}
+                    <input class="btn btn-dark" type="submit" value="اتمام">
+                {% endif %}
+                {% if noedit %}
+                    <a class="btn btn-dark" href="/editProfile/profile">
+                        تعديل
+                    </a>
+                {% endif %}
+                <br>
+                <br>
+                <a class="btn btn-danger" id="logoutBtn" href="#">تسجيل خروج</a>
+            </div>
         </form>
+ 
 
         <div class="overlay"></div>
         <div class="confirm-logout">
