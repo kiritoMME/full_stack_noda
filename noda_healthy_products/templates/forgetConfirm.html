@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block style %}
+
+{% endblock %}
+
+{% block content %}
+
+  <form action="/forgetConfirm/" method="post">
+    {% csrf_token %}
+    <input hidden value="{{ mobile }}" name="mobile">
+    <input placeholder="Enter the verification code" name="code">
+    <input type="submit" value="submit">
+  </form>
+{% endblock %}

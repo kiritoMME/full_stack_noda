@@ -4,10 +4,10 @@ from django.contrib.auth import logout
 from django.shortcuts import render,redirect
 from django.contrib import messages
 from django.db.models import Q
-from .forms import UserCreationForm, VerifyForm, LoginForm
+from .forms import UserCreationForm, VerifyForm, LoginForm, ResetPasswordForm
 from .models import Product, Tag, Order, ConfirmedOrder
 from . import verify
-from User.models import City
+from User.models import City,User
 from .decorators import verification_required
 # Create your views here.
 
@@ -47,6 +47,53 @@ def login(request):
         else:
             messages.error(request, 'Invaid mobile number or password')
     return render(request, 'login.html')
+
+def forgetPassPage(request):
+    if request.method == "POST":
+        mobile = request.POST.get('mobile')
+        user = User.objects.filter(mobile=mobile)
+        if not user.exists():
+            messages.error(request, "this number is not existed (*-*)")
+            return redirect("/forgetPassPage")
+        verify.send(mobile)
+        return render(request, "forgetConfirm.html", {"mobile" : mobile})
+    else:
+        return render(request, 'forgetPassPage.html')
+
+def forgetConfirm(request):
+    if  request.method == "POST":
+        mobile = request.POST.get('mobile')
+        code = request.POST.get('code')
+        if  code == "":
+            return render(request, "forgetConfirm.html", {"mobile" : mobile})
+        b = verify.check(mobile,code)
+        if b :
+            auth.login(request, User.objects.get(mobile=mobile))
+            return redirect('/changeForgottenPass')
+    else:
+        return render(request, "forgetConfirm.html", {"mobile" : mobile})
+
+@login_required
+def changeForgottenPass(request):
+    if request.method == "POST":
+        form = ResetPasswordForm(request.POST)
+        if form.is_valid():
+            password = form.cleaned_data.get('password1')
+            password2 = form.cleaned_data.get('password2')
+            if password == password2:
+                user = request.user
+                user.set_password(password)
+                user.save()
+                messages.success(request, "Your Password is Succesfully changed")
+                auth.login(request, user)
+                return redirect('/')
+            else : 
+                messages.error(request, "The two password are not matched")
+        else:
+            messages.error(request, "please check the passwords again")
+    else: 
+        form = ResetPasswordForm()
+    return render(request, 'forgottenPassChange.html', {'form' : form})
 
 def logout_view(request):
     logout(request)

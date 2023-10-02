@@ -18,6 +18,13 @@ class UserCreationForm(BaseUserCreationForm):
 
         fields = ('first_name', 'last_name', 'city', 'address', 'mobile', 'password1', 'password2')
 
+class ResetPasswordForm(forms.Form):
+    password1 = forms.CharField(max_length=255, required=True, widget=forms.PasswordInput(attrs={'class': 'form-control', 'autocomplete':'off','placeholder': 'إنشاء كلمة سر جديده'}))
+    password2 = forms.CharField(max_length=255, required=True, widget=forms.PasswordInput(attrs={'class': 'form-control', 'autocomplete':'off','placeholder': 'اعد كتابة كلمة السر'}))
+    class Meta:
+        model = User
+        fields = ('password1', 'password2')
+
 class LoginForm(forms.Form):
     mobile = forms.CharField(max_length=20, required=True, help_text='Phone number')
     password = forms.CharField()

@@ -1,0 +1,12 @@
+{ extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+  hw
+  <form action="/forgetPassPage/" method="post">
+    {% csrf_token %}
+    <input placeholder="Enter your number" name="mobile">
+    <input type="submit" value="submit">
+  </form>
+{% endblock %}
